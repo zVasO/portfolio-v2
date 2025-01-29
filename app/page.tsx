@@ -202,7 +202,7 @@ export default function Home() {
                 I am also an avid fan of sports, always looking for new ways to
                 stay active and healthy. In my free time, I enjoy playing video
                 games, as they allow me to unwind and challenge myself in new
-                ways. And of course, I am a proud cat lover—there's nothing like
+                ways. And of course, I am a proud cat lover—there&apos;s nothing like
                 spending time with my furry friend.
               </p>
               <p>
