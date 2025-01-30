@@ -63,7 +63,8 @@ export default {
   		},
   		animation: {
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
-  			'background-position-spin': 'background-position-spin 3000ms infinite alternate'
+  			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
+  			orbit: 'orbit calc(var(--duration)*1s) linear infinite'
   		},
   		keyframes: {
   			rainbow: {
@@ -80,6 +81,14 @@ export default {
   				},
   				'100%': {
   					backgroundPosition: 'bottom center'
+  				}
+  			},
+  			orbit: {
+  				'0%': {
+  					transform: 'rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg))'
+  				},
+  				'100%': {
+  					transform: 'rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg))'
   				}
   			}
   		}
