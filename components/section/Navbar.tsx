@@ -9,22 +9,13 @@ import {
   Home,
   Linkedin,
   Mail,
-  Menu,
   User,
 } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import IconLink from "../IconLink";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "../ui/button";
+import BurgerMenu from "../MenuBurger";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -164,88 +155,7 @@ const Navbar: React.FC = () => {
         </TooltipProvider>
       </div>
       <div className='sm:hidden m-4'>
-        <Sheet>
-          <SheetTrigger>
-            <Button>
-              <Menu />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side={"top"}>
-            <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
-              <SheetDescription>
-                <div className='grid'>
-                  {/* Pour chaque ligne avec un icône et un texte */}
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/'
-                      icon={<Home />}
-                      label='Homepage'
-                      isInternal
-                    />
-                  </div>
-                  <hr />
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/#about'
-                      icon={<User />}
-                      label='About me'
-                      isInternal
-                    />
-                  </div>
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/#stack'
-                      icon={<Code />}
-                      label='Tech Stack'
-                      isInternal
-                    />
-                  </div>
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/#experience'
-                      icon={<BriefcaseBusiness />}
-                      label='Experience'
-                      isInternal
-                    />
-                  </div>
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/#projects'
-                      icon={<AppWindowMac />}
-                      label='Projects'
-                      isInternal
-                    />
-                  </div>
-                  <hr />
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='https://www.linkedin.com/in/dylan-germann/'
-                      icon={<Linkedin />}
-                      label='My linkedin'
-                    />
-                  </div>
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='https://github.com/zVasO'
-                      icon={<Github />}
-                      label='My github'
-                    />
-                  </div>
-                  <hr />
-                  <div className='flex items-center justify-start gap-2'>
-                    <IconLink
-                      href='/contact'
-                      icon={<Mail />}
-                      label='My linkedin'
-                      isInternal
-                    />
-                  </div>
-                </div>
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+        <BurgerMenu />
       </div>
     </>
   );
