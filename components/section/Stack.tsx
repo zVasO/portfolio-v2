@@ -11,6 +11,7 @@ import ReactLogo from "@/components/tech-logo/ReactLogo";
 import VueLogo from "@/components/tech-logo/VueLogo";
 import TailwindLogo from "@/components/tech-logo/TaiwindLogo";
 import { motion } from "framer-motion";
+import Image from "next/image";
 const Stack = () => {
   return (
     <motion.section
@@ -41,7 +42,7 @@ const Stack = () => {
             <PostgresqlLogo />
           </OrbitingCircles>
           <OrbitingCircles iconSize={40} radius={100} reverse>
-            <JsLogo />
+          <Image alt="svg js" src='/tech-logo/js.svg' width={40} height={40} />
             <TsLogo />
             <PhpLogo />
           </OrbitingCircles>
@@ -50,7 +51,7 @@ const Stack = () => {
             <SymfonyLogo />
             <NextLogo />
             <ReactLogo />
-            <VueLogo />
+            <Image alt="svg vuejs" src='/tech-logo/vue.svg' width={40} height={40} />
             <TailwindLogo />
           </OrbitingCircles>
         </div>

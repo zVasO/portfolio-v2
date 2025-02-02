@@ -154,7 +154,7 @@ const Navbar: React.FC = () => {
           </div>
         </TooltipProvider>
       </div>
-      <div className='sm:hidden m-4'>
+      <div className='sm:hidden bg-white fixed top-0 left-0 right-0 z-10'>
         <BurgerMenu />
       </div>
     </>
