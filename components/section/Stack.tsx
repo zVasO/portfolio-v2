@@ -1,5 +1,4 @@
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
-import JsLogo from "@/components/tech-logo/JsLogo";
 import TsLogo from "@/components/tech-logo/TsLogo";
 import PhpLogo from "@/components/tech-logo/PhpLogo";
 import MysqlLogo from "@/components/tech-logo/MysqlLogo";
@@ -8,7 +7,6 @@ import LaravelLogo from "@/components/tech-logo/LaravelLogo";
 import SymfonyLogo from "@/components/tech-logo/SymfonyLogo";
 import NextLogo from "@/components/tech-logo/NextLogo";
 import ReactLogo from "@/components/tech-logo/ReactLogo";
-import VueLogo from "@/components/tech-logo/VueLogo";
 import TailwindLogo from "@/components/tech-logo/TaiwindLogo";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -42,7 +40,12 @@ const Stack = () => {
             <PostgresqlLogo />
           </OrbitingCircles>
           <OrbitingCircles iconSize={40} radius={100} reverse>
-          <Image alt="svg js" src='/tech-logo/js.svg' width={40} height={40} />
+            <Image
+              alt='svg js'
+              src='/tech-logo/js.svg'
+              width={40}
+              height={40}
+            />
             <TsLogo />
             <PhpLogo />
           </OrbitingCircles>
@@ -51,7 +54,12 @@ const Stack = () => {
             <SymfonyLogo />
             <NextLogo />
             <ReactLogo />
-            <Image alt="svg vuejs" src='/tech-logo/vue.svg' width={40} height={40} />
+            <Image
+              alt='svg vuejs'
+              src='/tech-logo/vue.svg'
+              width={40}
+              height={40}
+            />
             <TailwindLogo />
           </OrbitingCircles>
         </div>
