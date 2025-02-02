@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { Dock, DockIcon } from "./ui/dock";
+import { Dock, DockIcon } from "../ui/dock";
 import {
+  AppWindowMac,
   BriefcaseBusiness,
   Code,
   Github,
@@ -10,10 +11,10 @@ import {
   Mail,
   User,
 } from "lucide-react";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import IconLink from "./IconLink";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import IconLink from "../IconLink";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -45,6 +46,21 @@ const Navbar: React.FC = () => {
             <Tooltip>
               <TooltipTrigger>
                 <IconLink
+                  href='/#about'
+                  icon={<User />}
+                  label='About me'
+                  isInternal
+                />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>About me</p>
+              </TooltipContent>
+            </Tooltip>
+          </DockIcon>
+          <DockIcon>
+            <Tooltip>
+              <TooltipTrigger>
+                <IconLink
                   href='/#stack'
                   icon={<Code />}
                   label='Tech Stack'
@@ -60,14 +76,14 @@ const Navbar: React.FC = () => {
             <Tooltip>
               <TooltipTrigger>
                 <IconLink
-                  href='/#projects'
+                  href='/#experience'
                   icon={<BriefcaseBusiness />}
-                  label='Projects'
+                  label='Experience'
                   isInternal
                 />
               </TooltipTrigger>
               <TooltipContent>
-                <p>Projects</p>
+                <p>Experience</p>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
@@ -75,14 +91,14 @@ const Navbar: React.FC = () => {
             <Tooltip>
               <TooltipTrigger>
                 <IconLink
-                  href='/#about'
-                  icon={<User />}
-                  label='About me'
+                  href='/#projects'
+                  icon={<AppWindowMac />}
+                  label='Projects'
                   isInternal
                 />
               </TooltipTrigger>
               <TooltipContent>
-                <p>About me</p>
+                <p>Projects</p>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
