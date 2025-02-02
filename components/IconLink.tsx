@@ -15,10 +15,11 @@ const IconLink = ({
     return (
       <Link
         href={href}
-        className='p-2 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors'
+        className='flex items-center gap-4 p-2 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors'
         aria-label={label}
       >
         {icon}
+        <span className="sm:hidden">{label}</span>
       </Link>
     );
   }
@@ -28,10 +29,11 @@ const IconLink = ({
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      className='p-2 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors'
+      className='flex items-center gap-4 p-2 text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors'
       aria-label={label}
     >
       {icon}
+      <span className="sm:hidden">{label}</span>
     </a>
   );
 };

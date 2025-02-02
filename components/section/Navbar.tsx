@@ -183,7 +183,6 @@ const Navbar: React.FC = () => {
                       label='Homepage'
                       isInternal
                     />
-                    <span>Home</span>
                   </div>
                   <hr />
                   <div className='flex items-center justify-start gap-2'>
@@ -193,7 +192,6 @@ const Navbar: React.FC = () => {
                       label='About me'
                       isInternal
                     />
-                    <span>About</span>
                   </div>
                   <div className='flex items-center justify-start gap-2'>
                     <IconLink
@@ -202,7 +200,6 @@ const Navbar: React.FC = () => {
                       label='Tech Stack'
                       isInternal
                     />
-                    <span>Stack</span>
                   </div>
                   <div className='flex items-center justify-start gap-2'>
                     <IconLink
@@ -211,7 +208,6 @@ const Navbar: React.FC = () => {
                       label='Experience'
                       isInternal
                     />
-                    <span>Experience</span>
                   </div>
                   <div className='flex items-center justify-start gap-2'>
                     <IconLink
@@ -220,7 +216,6 @@ const Navbar: React.FC = () => {
                       label='Projects'
                       isInternal
                     />
-                    <span>Projects</span>
                   </div>
                   <hr />
                   <div className='flex items-center justify-start gap-2'>
@@ -229,7 +224,6 @@ const Navbar: React.FC = () => {
                       icon={<Linkedin />}
                       label='My linkedin'
                     />
-                    <span>Linkedin</span>
                   </div>
                   <div className='flex items-center justify-start gap-2'>
                     <IconLink
@@ -237,7 +231,6 @@ const Navbar: React.FC = () => {
                       icon={<Github />}
                       label='My github'
                     />
-                    <span>Github</span>
                   </div>
                   <hr />
                   <div className='flex items-center justify-start gap-2'>
@@ -247,7 +240,6 @@ const Navbar: React.FC = () => {
                       label='My linkedin'
                       isInternal
                     />
-                    <span>Get in touch</span>
                   </div>
                 </div>
               </SheetDescription>

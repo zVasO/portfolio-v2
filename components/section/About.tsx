@@ -6,7 +6,7 @@ const About = () => {
   return (
      <motion.section
      id='about'
-     className='min-h-screen bg-gray-50 dark:bg-gray-800 py-20 px-4'
+     className='min-h-screen bg-gray-50 dark:bg-gray-800 sm:py-20 px-4'
      initial={{ opacity: 0 }}
      whileInView={{ opacity: 1 }}
      transition={{ duration: 0.8 }}

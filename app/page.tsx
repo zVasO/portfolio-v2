@@ -152,7 +152,7 @@ export default function Home() {
           {/* Scroll Indicator */}
           <motion.button
             onClick={scrollToAbout}
-            className='absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer'
+            className='absolute bottom-8 transform -translate-x-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer'
             animate={{
               y: [0, 10, 0],
             }}
