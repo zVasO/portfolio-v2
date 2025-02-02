@@ -1,23 +1,42 @@
 const VueLogo = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
-    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 -17.5 256 256'
     version='1.1'
-    viewBox='0 0 261.76 226.69'
+    xmlns='http://www.w3.org/2000/svg'
+    xmlnsXlink='http://www.w3.org/1999/xlink'
+    preserveAspectRatio='xMidYMid'
+    fill='#000000'
     {...props}
   >
-    <g transform='matrix(1.3333 0 0 -1.3333 -76.311 313.34)'>
-      <g transform='translate(178.06 235.01)'>
+    <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
+    <g
+      id='SVGRepo_tracerCarrier'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    ></g>
+    <g id='SVGRepo_iconCarrier'>
+      {" "}
+      <g>
+        {" "}
         <path
-          d='m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z'
-          fill='#41b883'
-        />
-      </g>
-      <g transform='translate(178.06 235.01)'>
+          d='M204.8,0 L256,0 L128,220.8 L0,0 L50.56,0 L97.92,0 L128,51.2 L157.44,0 L204.8,0 Z'
+          fill='#41B883'
+        >
+          {" "}
+        </path>{" "}
         <path
-          d='m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z'
-          fill='#34495e'
-        />
-      </g>
+          d='M0,0 L128,220.8 L256,0 L204.8,0 L128,132.48 L50.56,0 L0,0 Z'
+          fill='#41B883'
+        >
+          {" "}
+        </path>{" "}
+        <path
+          d='M50.56,0 L128,133.12 L204.8,0 L157.44,0 L128,51.2 L97.92,0 L50.56,0 Z'
+          fill='#35495E'
+        >
+          {" "}
+        </path>{" "}
+      </g>{" "}
     </g>
   </svg>
 );
