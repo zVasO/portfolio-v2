@@ -18,7 +18,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
 }) => {
   return (
     <motion.div
-      className='border mt-4 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center rounded-lg shadow-2xl p-6 bg-white dark:bg-gray-700'
+      className='border mt-4 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center rounded-3xl shadow-2xl p-6 bg-white dark:bg-gray-700'
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
