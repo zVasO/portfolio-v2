@@ -1,6 +1,6 @@
 "use server";
 
-import Brevo from "@getbrevo/brevo";
+import {TransactionalEmailsApi, TransactionalEmailsApiApiKeys} from "@getbrevo/brevo";
 
 export async function sendContact(formData: FormData) {
     const name = formData.get("name") as string;
@@ -17,9 +17,9 @@ export async function sendContact(formData: FormData) {
             throw new Error("BREVO_API_KEY manquant dans les variables d'environnement.");
         }
 
-        const apiInstance = new Brevo.TransactionalEmailsApi();
+        const apiInstance = new TransactionalEmailsApi();
         apiInstance.setApiKey(
-            Brevo.TransactionalEmailsApiApiKeys.apiKey,
+            TransactionalEmailsApiApiKeys.apiKey,
             apiKey
         );
 
