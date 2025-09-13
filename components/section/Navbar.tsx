@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Page d'accueil</p>
+                    <p>Page d&apos;accueil</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
