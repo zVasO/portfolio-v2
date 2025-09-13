@@ -81,17 +81,9 @@ export default function Testimonials() {
                     >
                         <Quote className="absolute top-6 right-6 text-indigo-400/30 w-10 h-10" />
                         <div className="flex items-center mt-6">
-                            {testimonials[index].avatar ? (
-                                <img
-                                    src="/avatar.png"
-                                    alt={testimonials[index].name}
-                                    className="w-12 h-12 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
-                                />
-                            ) : (
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 flex items-center justify-center text-white font-bold">
-                                    {testimonials[index].name.charAt(0)}
-                                </div>
-                            )}
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 flex items-center justify-center text-white font-bold">
+                                {testimonials[index].name.charAt(0)}
+                            </div>
                             <div className="ml-4">
                                 <h4 className="font-semibold text-gray-900 dark:text-gray-100">
                                     {testimonials[index].name}
