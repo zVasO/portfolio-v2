@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <IconLink
-                      href='/contact'
+                      href='#contact'
                       icon={<Mail />}
                       label='My linkedin'
                       isInternal

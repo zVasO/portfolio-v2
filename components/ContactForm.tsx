@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ContactForm() {
     return (
-        <section className="mt-12 max-w-3xl mx-auto px-6 py-10 rounded-3xl shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+        <section className="mt-12 max-w-3xl mx-auto px-6 py-10 rounded-3xl shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm" id="contact">
             <h2 className="text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent">
                 Me contacter
             </h2>
