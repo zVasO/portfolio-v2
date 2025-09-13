@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Book, Cat, Laptop, Plane } from "lucide-react";
+import { Book, Laptop, Plane } from "lucide-react";
 import Image from "next/image"
 
 const About = () => {
@@ -42,17 +42,6 @@ const About = () => {
                />
              </div>
              <div className='absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-full opacity-20 blur-2xl' />
-           </motion.div>
-           <motion.div
-             className='relative'
-             initial={{ x: -20, opacity: 0 }}
-             whileInView={{ x: 0, opacity: 1 }}
-             transition={{ delay: 0.2, duration: 0.5 }}
-             viewport={{ once: true }}
-           >
-             <span className='flex gap-3 text-gray-700 dark:text-gray-300'>
-               Ca c&apos;est moi <Cat className='text-teal-500' />
-             </span>
            </motion.div>
          </div>
 

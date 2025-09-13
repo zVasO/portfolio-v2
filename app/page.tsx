@@ -16,6 +16,7 @@ import IconLink from "@/components/IconLink";
 import About from "@/components/section/About";
 import Stack from "@/components/section/Stack";
 import Experience from "@/components/section/Experience";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   const scrollToAbout = () => {
@@ -168,6 +169,7 @@ export default function Home() {
         <About />
         <Stack />
         <Experience />
+        <ContactForm />
       </main>
     </>
   );
