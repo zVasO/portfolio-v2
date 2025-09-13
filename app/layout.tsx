@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dylan Germann | Web Developer | Freelance",
+  title: "Dylan Germann | Développeur Web | Freelance",
   description:
-    "Freelance web developer specializing in creating modern websites and applications. Get in touch for custom projects.",
+    "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
 };
 
 export default function RootLayout({

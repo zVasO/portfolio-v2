@@ -20,7 +20,7 @@ const About = () => {
          transition={{ duration: 0.5 }}
          viewport={{ once: true }}
        >
-         About Me
+         A propos de moi
        </motion.h2>
 
        <div className='grid md:grid-cols-[2fr,3fr] gap-8 items-start'>
@@ -68,12 +68,10 @@ const About = () => {
                <span className='absolute -left-4 top-0 text-indigo-600 font-bold'>
                  &quot;
                </span>
-               I love reading books, especially those related to personal
-               growth and technology. I am passionate about solving
-               problems and constantly learning new skills to improve
-               myself and my work. One of my biggest dreams is to become a
-               digital nomad and travel the world while continuing to work
-               remotely.
+               J’aime lire des livres, en particulier ceux liés au développement personnel et à la technologie. Je suis passionné par la résolution de problèmes et l’apprentissage continu de nouvelles compétences pour m’améliorer ainsi que mon travail. L’un de mes plus grands rêves est de devenir digital nomad et de voyager à travers le monde tout en continuant à travailler à distance.
+               <span className='absolute -right-4 bottom-0 text-indigo-600 font-bold'>
+                 &quot;
+               </span>
              </p>
 
              <div className='flex gap-4 py-4'>
@@ -92,32 +90,25 @@ const About = () => {
              </div>
 
              <p>
-               I am also an avid fan of sports, always looking for new ways
-               to stay active and healthy. In my free time, I enjoy playing
-               video games, as they allow me to unwind and challenge myself
-               in new ways. And of course, I am a proud cat
-               lover—there&apos;s nothing like spending time with my furry
-               friend.
-             </p>
-
-             <p className='relative'>
-               These hobbies and passions fuel my creativity and drive, and
-               I bring the same enthusiasm and determination to every
-               project I work on.
                <span className='absolute -right-4 bottom-0 text-indigo-600 font-bold'>
                  &quot;
                </span>
+               Je suis également un grand passionné de sport, toujours à la recherche de nouvelles façons de rester actif et en bonne santé. Pendant mon temps libre, j’aime jouer aux jeux vidéo, car ils me permettent de me détendre et de me lancer de nouveaux défis. Et bien sûr, je suis un fier amoureux des chats — rien n’égale le plaisir de passer du temps avec mon compagnon à fourrure.
+             </p>
+
+             <p className='relative'>
+               Ces loisirs et passions nourrissent ma créativité et ma motivation, et j’apporte le même enthousiasme ainsi que la même détermination à chacun des projets sur lesquels je travaille.
              </p>
            </div>
 
            <div className='flex flex-wrap gap-3 pt-4'>
              {[
-               "Reading",
-               "Technology",
-               "Travel",
+               "Lecture",
+               "Technologie",
+               "Voyage",
                "Sports",
-               "Gaming",
-               "Cats",
+               "Jeux-vidéos",
+               "Chats",
              ].map((interest, i) => (
                <span
                  key={i}

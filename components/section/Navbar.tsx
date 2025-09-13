@@ -35,12 +35,12 @@ const Navbar: React.FC = () => {
                     <IconLink
                       href='/'
                       icon={<Home />}
-                      label='Homepage'
+                      label="Page d'accueil"
                       isInternal
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Homepage</p>
+                    <p>Page d'accueil</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
@@ -51,12 +51,12 @@ const Navbar: React.FC = () => {
                     <IconLink
                       href='/#about'
                       icon={<User />}
-                      label='About me'
+                      label='A propos de moi'
                       isInternal
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>About me</p>
+                    <p>A propos de moi</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
@@ -66,12 +66,12 @@ const Navbar: React.FC = () => {
                     <IconLink
                       href='/#stack'
                       icon={<Code />}
-                      label='Tech Stack'
+                      label='Stack Technique'
                       isInternal
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Tech Stack</p>
+                    <p>Stack Technique</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
@@ -96,12 +96,12 @@ const Navbar: React.FC = () => {
                     <IconLink
                       href='/#projects'
                       icon={<AppWindowMac />}
-                      label='Projects'
+                      label='Projets'
                       isInternal
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Projects</p>
+                    <p>Projets</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                     />
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Get in touch !</p>
+                    <p>Contactez moi !</p>
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
