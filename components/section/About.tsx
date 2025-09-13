@@ -34,11 +34,11 @@ const About = () => {
            >
              <div className='aspect-square rounded-2xl overflow-hidden flex'>
                <Image
-                 src='/img/fifi.webp'
+                 src='/img/profile-picture.webp'
                  layout='fill'
                  objectFit='cover'
                  className='rounded-md'
-                 alt='My cat fifi'
+                 alt='Une photo de moi'
                />
              </div>
              <div className='absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-full opacity-20 blur-2xl' />
@@ -51,7 +51,7 @@ const About = () => {
              viewport={{ once: true }}
            >
              <span className='flex gap-3 text-gray-700 dark:text-gray-300'>
-               There is my cat fifi <Cat className='text-teal-500' />
+               Ca c&apos;est moi <Cat className='text-teal-500' />
              </span>
            </motion.div>
          </div>

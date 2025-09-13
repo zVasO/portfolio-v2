@@ -32,22 +32,22 @@ export default function Home() {
         <title>Dylan Germann - Full Stack Web Developer</title>
         <meta
           name='description'
-          content='Dylan Germann is a Full Stack Web Developer specializing in modern, high-performance web applications with expertise in both front-end and back-end development.'
+          content='Dylan Germann est un Développeur Web Full Stack spécialisé dans les applications web modernes et performantes, avec une expertise à la fois en développement front-end et back-end.'
         />
         <meta
           name='keywords'
-          content='Full Stack, Web Developer, Laravel, Symfony, React, Vue.js, PHP, TypeScript, JavaScript, Web Applications, Front-end, Back-end, Developer Portfolio'
+          content='Full Stack, Web Developer, Laravel, Symfony, React, Vue.js, PHP, TypeScript, JavaScript, Web Applications, Front-end, Back-end, Developer Portfolio, developpeur web'
         />
         <meta name='author' content='Dylan Germann' />
 
         {/* Open Graph (OG) pour les réseaux sociaux */}
         <meta
           property='og:title'
-          content='Dylan Germann - Full Stack Web Developer'
+          content='Dylan Germann - Développeur Web Full Stack'
         />
         <meta
           property='og:description'
-          content='Dylan Germann is a Full Stack Web Developer specializing in modern, high-performance web applications. Explore my skills and projects.'
+          content='Dylan Germann est un Développeur Web Full Stack spécialisé dans les applications web modernes et performantes. Découvrez mes compétences et mes projets.'
         />
         <meta property='og:image' content='/path/to/your-image.jpg' />
         <meta property='og:url' content='https://www.dgermann.dev/' />
@@ -57,11 +57,11 @@ export default function Home() {
         <meta name='twitter:card' content='summary_large_image' />
         <meta
           name='twitter:title'
-          content='Dylan Germann - Full Stack Web Developer'
+          content='Dylan Germann - Développeur Web Full Stack'
         />
         <meta
           name='twitter:description'
-          content='Explore the portfolio of Dylan Germann, a Full Stack Web Developer specializing in modern, high-performance web applications.'
+          content='Découvrez le portfolio de Dylan Germann, Développeur Web Full Stack spécialisé dans les applications web modernes et performantes.'
         />
         <meta name='twitter:image' content='/path/to/your-image.jpg' />
       </Head>
@@ -76,9 +76,9 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className='relative mx-0 max-w-[43.5rem] text-center font-semibold tracking-tighter text-5xl sm:text-7xl md:text-7xl lg:text-7xl text-gray-900 dark:text-white'>
-                I&apos;m Dylan Germann <br />
+                Je suis Dylan Germann<br />
                 <span className='text-4xl bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text text-transparent'>
-                  Full Stack Web Developer
+                  Développeur Web Full Stack
                 </span>
               </h1>
             </motion.div>
@@ -88,17 +88,14 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <p className='mt-6 max-w-3xl tracking-wide text-gray-700 dark:text-gray-200 text-center text-lg leading-relaxed mx-auto'>
-                I specialize in developing{" "}
-                <span className='text-indigo-600 font-medium'>modern</span>,{" "}
-                <span className='text-teal-500 font-medium'>
-                  high-performance
-                </span>
-                , and{" "}
-                <span className='text-indigo-600 font-medium'>custom</span> web
-                applications, with expertise in both front-end and back-end
-                development.
+              <p className="mt-6 max-w-3xl tracking-wide text-gray-700 dark:text-gray-200 text-center text-lg leading-relaxed mx-auto">
+                Je suis spécialisé dans le développement{" "}
+                <span className="text-indigo-600 font-medium">moderne</span>,{" "}
+                <span className="text-teal-500 font-medium">hautement performant</span> et{" "}
+                <span className="text-indigo-600 font-medium">sur mesure</span>
+                d’applications web, avec une expertise à la fois en développement front-end et back-end.
               </p>
+
             </motion.div>
 
             {/* Tech Stack */}
