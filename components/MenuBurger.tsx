@@ -64,7 +64,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='/'
                   icon={<Home />}
-                  label='Homepage'
+                  label="Page d'accueil"
                   isInternal
                   onClick={handleLinkClick}
                 />
@@ -74,7 +74,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='/#about'
                   icon={<User />}
-                  label='About me'
+                  label='A propos de moi'
                   isInternal
                   onClick={handleLinkClick}
                 />
@@ -83,7 +83,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='/#stack'
                   icon={<Code />}
-                  label='Tech Stack'
+                  label='Stack Technique'
                   isInternal
                   onClick={handleLinkClick}
                 />
@@ -101,7 +101,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='/#projects'
                   icon={<AppWindowMac />}
-                  label='Projects'
+                  label='Projets'
                   isInternal
                   onClick={handleLinkClick}
                 />
@@ -111,7 +111,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='https://www.linkedin.com/in/dylan-germann/'
                   icon={<Linkedin />}
-                  label='My linkedin'
+                  label='Mon linkedin'
                   onClick={handleLinkClick}
                 />
               </div>
@@ -119,7 +119,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='https://github.com/zVasO'
                   icon={<Github />}
-                  label='My github'
+                  label='Mon github'
                   onClick={handleLinkClick}
                 />
               </div>
@@ -128,7 +128,7 @@ const BurgerMenu = () => {
                 <IconLink
                   href='/contact'
                   icon={<Mail />}
-                  label='Contact'
+                  label='Me contacter'
                   isInternal
                   onClick={handleLinkClick}
                 />
