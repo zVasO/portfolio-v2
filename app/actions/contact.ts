@@ -24,7 +24,7 @@ export async function sendContact(formData: FormData) {
         );
 
         await apiInstance.sendTransacEmail({
-            sender: { email: "no-reply@dgermann.dev", name: "Portfolio" },
+            sender: { email: "dev.dyger@gmail.com", name: "Portfolio" },
             to: [{ email: "dev.dyger@gmail.com", name: "Dylan Germann" }],
             replyTo: { email },
             subject: `📩 Nouveau message de ${name}`,
