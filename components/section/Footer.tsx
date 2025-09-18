@@ -21,8 +21,8 @@ const socialLinks = [
     label: "LinkedIn",
   },
   {
-    href: "mailto:contact@dgermann.dev",
-    label: "contact@dgermann.dev",
+    href: "mailto:dev.dyger@gmail.com",
+    label: "dev.dyger@gmail.com",
   },
 ];
 
