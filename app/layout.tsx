@@ -3,6 +3,7 @@ import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/section/Navbar";
+import Footer from "@/components/section/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
         <div className="min-vh-screen">
           {children}
         </div>
+        <Footer />
         <Analytics />
       </body>
     </html>

@@ -123,7 +123,7 @@ export default async function TechnologyPage({ params }: {
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                                 <Link
-                                    href="mailto:contact@dgermann.dev"
+                                    href="mailto:dev.dyger@gmail.com"
                                     className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
                                 >
                                     Recevoir une proposition
