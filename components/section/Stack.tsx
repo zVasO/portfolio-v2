@@ -41,7 +41,7 @@ const Stack = () => {
           </OrbitingCircles>
           <OrbitingCircles iconSize={40} radius={100} reverse>
             <Image
-              alt='svg js'
+              alt='Logo JavaScript'
               src='/tech-logo/js.svg'
               width={40}
               height={40}
@@ -55,7 +55,7 @@ const Stack = () => {
             <NextLogo />
             <ReactLogo />
             <Image
-              alt='svg vuejs'
+              alt='Logo Vue.js'
               src='/tech-logo/vue.svg'
               width={40}
               height={40}

@@ -35,10 +35,11 @@ const About = () => {
              <div className='aspect-square rounded-2xl overflow-hidden flex'>
                <Image
                  src='/img/profile-picture.webp'
-                 layout='fill'
-                 objectFit='cover'
-                 className='rounded-md'
-                 alt='Une photo de moi'
+                 fill
+                 sizes='(max-width: 768px) 240px, 320px'
+                 className='rounded-md object-cover'
+                 priority
+                 alt='Portrait de Dylan Germann'
                />
              </div>
              <div className='absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-full opacity-20 blur-2xl' />

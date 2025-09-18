@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useMemo, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
@@ -38,6 +38,25 @@ const testimonials: Testimonial[] = [
 export default function Testimonials() {
     const [index, setIndex] = useState(0);
     const [direction, setDirection] = useState<"left" | "right">("right");
+    const shouldReduceMotion = useReducedMotion();
+
+    const slideAnimation = useMemo(() => {
+        if (shouldReduceMotion) {
+            return {
+                initial: { opacity: 1, x: 0 },
+                animate: { opacity: 1, x: 0 },
+                exit: { opacity: 1, x: 0 },
+                transition: { duration: 0 },
+            } as const;
+        }
+
+        return {
+            initial: { x: direction === "right" ? 150 : -150, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            exit: { x: direction === "right" ? -150 : 150, opacity: 0 },
+            transition: { duration: 0.4, ease: "easeInOut" },
+        } as const;
+    }, [direction, shouldReduceMotion]);
 
     const handlePrev = () => {
         setDirection("left");
@@ -64,10 +83,7 @@ export default function Testimonials() {
                     <motion.div
                         key={index}
                         className="absolute w-full rounded-3xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 shadow-xl cursor-grab active:cursor-grabbing"
-                        initial={{ x: direction === "right" ? 150 : -150, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: direction === "right" ? -150 : 150, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        {...slideAnimation}
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.7}
@@ -78,6 +94,10 @@ export default function Testimonials() {
                                 handleNext();
                             }
                         }}
+                        role="group"
+                        aria-roledescription="Témoignage client"
+                        aria-live="polite"
+                        aria-atomic="true"
                     >
                         <Quote className="absolute top-6 right-6 text-indigo-400/30 w-10 h-10" />
                         <div className="flex items-center mt-6">
@@ -105,14 +125,16 @@ export default function Testimonials() {
                 <button
                     onClick={handlePrev}
                     className="p-2 rounded-full bg-indigo-500 text-white hover:bg-indigo-600 transition"
-                    aria-label="Précédent"
+                    aria-label="Afficher le témoignage précédent"
+                    type="button"
                 >
                     <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                     onClick={handleNext}
                     className="p-2 rounded-full bg-teal-500 text-white hover:bg-teal-600 transition"
-                    aria-label="Suivant"
+                    aria-label="Afficher le témoignage suivant"
+                    type="button"
                 >
                     <ChevronRight className="w-5 h-5" />
                 </button>
