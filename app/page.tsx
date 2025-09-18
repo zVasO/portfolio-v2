@@ -9,7 +9,7 @@ import {
   Palette,
   Terminal,
 } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Transition } from "framer-motion";
 
 import TechBadge from "@/components/TechBadge";
 import IconLink from "@/components/IconLink";
@@ -22,13 +22,16 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
 
+  /**
+   * Scroll vers la section "À propos"
+   */
   const scrollToAbout = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  /**
+   * Animation fade-in utilisée pour les éléments avec délai optionnel
+   */
   const getFadeProps = (delay = 0) => {
     if (shouldReduceMotion) {
       return {
@@ -45,81 +48,115 @@ export default function Home() {
     } as const;
   };
 
-  const scrollButtonAnimation = shouldReduceMotion
-    ? undefined
-    : {
-        animate: {
-          y: [0, 10, 0],
-        },
+  /**
+   * Animation du bouton de scroll
+   */
+  const scrollButtonAnimation: {
+    animate: { y: number[] };
+    transition: Transition;
+  } | undefined = shouldReduceMotion
+      ? undefined
+      : {
+        animate: { y: [0, 10, 0] },
         transition: {
           duration: 1.5,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: "easeInOut", // ✅ typage valide
         },
       };
 
   return (
-    <main className='min-h-screen' id='main-content'>
-      {/* Hero Section */}
-      <section className='relative flex min-h-screen items-center justify-center'>
-        <div className='flex flex-col items-center justify-center px-6 py-12 sm:py-32'>
-          <motion.div {...getFadeProps()}>
-            <h1 className='relative mx-0 max-w-[43.5rem] text-center text-5xl font-semibold tracking-tighter text-gray-900 dark:text-white sm:text-7xl md:text-7xl lg:text-7xl'>
-              Je suis Dylan Germann
-              <br />
-              <span className='text-4xl text-transparent'>
-                <span className='bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text'>
+      <main className="min-h-screen" id="main-content">
+        {/* Hero Section */}
+        <section className="relative flex min-h-screen items-center justify-center">
+          <div className="flex flex-col items-center justify-center px-6 py-12 sm:py-32">
+            <motion.div {...getFadeProps()}>
+              <h1 className="relative mx-0 max-w-[43.5rem] text-center text-5xl font-semibold tracking-tighter text-gray-900 dark:text-white sm:text-7xl">
+                Je suis Dylan Germann
+                <br />
+                <span className="text-4xl text-transparent">
+                <span className="bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text">
                   Développeur Web Full Stack
                 </span>
               </span>
-            </h1>
-          </motion.div>
+              </h1>
+            </motion.div>
 
-          <motion.div {...getFadeProps(0.3)}>
-            <p className='mt-6 mx-auto max-w-3xl text-center text-lg leading-relaxed tracking-wide text-gray-700 dark:text-gray-200'>
-              Je suis spécialisé dans le développement <span className='font-medium text-indigo-600'>moderne</span>,
-              <span className='font-medium text-teal-500'> hautement performant</span> et
-              <span className='font-medium text-indigo-600'> sur mesure</span> d’applications web, avec une expertise à la fois en développement front-end et back-end.
-            </p>
-          </motion.div>
+            <motion.div {...getFadeProps(0.3)}>
+              <p className="mt-6 mx-auto max-w-3xl text-center text-lg leading-relaxed tracking-wide text-gray-700 dark:text-gray-200">
+                Je suis spécialisé dans le développement{" "}
+                <span className="font-medium text-indigo-600">moderne</span>,
+                <span className="font-medium text-teal-500">
+                {" "}
+                  hautement performant
+              </span>{" "}
+                et
+                <span className="font-medium text-indigo-600"> sur mesure</span>{" "}
+                d’applications web, avec une expertise à la fois en développement
+                front-end et back-end.
+              </p>
+            </motion.div>
 
-          {/* Tech Stack */}
-          <motion.div {...getFadeProps(0.5)}>
-            <div className='mt-8 flex flex-wrap justify-center gap-4'>
-              <TechBadge icon={<Terminal className='h-4 w-4' />} label='Laravel · Symfony · Next.js' />
-              <TechBadge icon={<Palette className='h-4 w-4' />} label='React · Vue.js · Next.js' />
-              <TechBadge icon={<Code className='h-4 w-4' />} label='PHP · TypeScript · JavaScript' />
-            </div>
-          </motion.div>
+            {/* Tech Stack */}
+            <motion.div {...getFadeProps(0.5)}>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <TechBadge
+                    icon={<Terminal className="h-4 w-4" />}
+                    label="Laravel · Symfony · Next.js"
+                />
+                <TechBadge
+                    icon={<Palette className="h-4 w-4" />}
+                    label="React · Vue.js · Next.js"
+                />
+                <TechBadge
+                    icon={<Code className="h-4 w-4" />}
+                    label="PHP · TypeScript · JavaScript"
+                />
+              </div>
+            </motion.div>
 
-          {/* Social Links */}
-          <motion.div {...getFadeProps(0.7)}>
-            <div className='mt-8 flex justify-center gap-6'>
-              <IconLink href='https://github.com/zVasO' icon={<Github />} label='GitHub' />
-              <IconLink href='https://www.linkedin.com/in/dylan-germann/' icon={<LinkedinIcon />} label='LinkedIn' />
-              <IconLink href='/contact' icon={<Mail />} label='Email' isInternal />
-            </div>
-          </motion.div>
-        </div>
+            {/* Social Links */}
+            <motion.div {...getFadeProps(0.7)}>
+              <div className="mt-8 flex justify-center gap-6">
+                <IconLink
+                    href="https://github.com/zVasO"
+                    icon={<Github />}
+                    label="GitHub"
+                />
+                <IconLink
+                    href="https://www.linkedin.com/in/dylan-germann/"
+                    icon={<LinkedinIcon />}
+                    label="LinkedIn"
+                />
+                <IconLink
+                    href="/contact"
+                    icon={<Mail />}
+                    label="Email"
+                    isInternal
+                />
+              </div>
+            </motion.div>
+          </div>
 
-        {/* Scroll Indicator */}
-        <motion.button
-          type='button'
-          onClick={scrollToAbout}
-          className='absolute -translate-x-1/2 cursor-pointer text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300'
-          aria-label='Défiler vers la section À propos'
-          style={{ left: "50%", bottom: "2rem" }}
-          {...(scrollButtonAnimation ?? {})}
-        >
-          <ChevronDown className='h-8 w-8' aria-hidden='true' />
-        </motion.button>
-      </section>
+          {/* Bouton Scroll */}
+          <motion.button
+              type="button"
+              onClick={scrollToAbout}
+              className="absolute -translate-x-1/2 cursor-pointer text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
+              aria-label="Défiler vers la section À propos"
+              style={{ left: "50%", bottom: "2rem" }}
+              {...(scrollButtonAnimation ?? {})}
+          >
+            <ChevronDown className="h-8 w-8" aria-hidden="true" />
+          </motion.button>
+        </section>
 
-      <About />
-      <Stack />
-      <Experience />
-      <Testimonials />
-      <ContactForm />
-    </main>
+        {/* Sections */}
+        <About />
+        <Stack />
+        <Experience />
+        <Testimonials />
+        <ContactForm />
+      </main>
   );
 }
