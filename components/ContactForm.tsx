@@ -1,3 +1,4 @@
+"use client";
 import { sendContact } from "@/app/actions/contact";
 import { motion } from "framer-motion";
 
