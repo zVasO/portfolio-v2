@@ -8,8 +8,8 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		colors: {
+        extend: {
+                colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -55,8 +55,34 @@ export default {
   			'color-3': 'hsl(var(--color-3))',
   			'color-4': 'hsl(var(--color-4))',
   			'color-5': 'hsl(var(--color-5))'
-  		},
-  		borderRadius: {
+                },
+                fontFamily: {
+                        sans: [
+                                'var(--font-space-grotesk)',
+                                'Inter',
+                                'SF Pro Display',
+                                '-apple-system',
+                                'BlinkMacSystemFont',
+                                'Segoe UI',
+                                'sans-serif',
+                        ],
+                        display: [
+                                'var(--font-space-grotesk)',
+                                'Inter',
+                                'SF Pro Display',
+                                '-apple-system',
+                                'BlinkMacSystemFont',
+                                'Segoe UI',
+                                'sans-serif',
+                        ],
+                        mono: [
+                                'var(--font-plex-mono)',
+                                'JetBrains Mono',
+                                'Fira Code',
+                                'monospace',
+                        ],
+                },
+                borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
