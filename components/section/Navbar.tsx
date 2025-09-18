@@ -28,7 +28,6 @@ const Navbar: React.FC = () => {
             <Dock
               direction='middle'
               className='fixed top-0 left-0 right-0 z-50 border bg-white bg-opacity-50 dark:border-white dark:bg-black dark:bg-opacity-50'
-              role='menubar'
             >
               <DockIcon>
                 <Tooltip>
