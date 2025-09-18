@@ -8,18 +8,15 @@ import { getTechnologyPage, technologySlugs } from "@/lib/technology-pages";
 
 const SITE_URL = "https://www.dgermann.dev";
 
-type PageProps = {
-    params: {
-        slug: string;
-    };
-};
 
 export function generateStaticParams() {
     return technologySlugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = params;
+export async function generateMetadata({ params }: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const { slug } = await params;
     const page = getTechnologyPage(slug);
 
     if (!page) return {};
@@ -47,8 +44,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
-export default function TechnologyPage({ params }: PageProps) {
-    const { slug } = params;
+export default async function TechnologyPage({ params }: {
+    params: Promise<{ slug: string }>
+} ) {
+    const { slug } = await params;
     const page = getTechnologyPage(slug);
 
     if (!page) notFound();
