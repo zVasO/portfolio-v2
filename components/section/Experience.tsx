@@ -18,7 +18,7 @@ const Experience = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        Experience
+        Experiences
       </motion.h2>
 
       <ExperienceItem

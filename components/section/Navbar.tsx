@@ -22,12 +22,13 @@ export type IconProps = React.HTMLAttributes<SVGElement>;
 const Navbar: React.FC = () => {
   return (
     <>
-      <div className='hidden sm:block'>
+      <nav className='hidden sm:block' aria-label='Navigation principale'>
         <TooltipProvider delayDuration={10}>
           <div className='relative'>
             <Dock
               direction='middle'
-              className='fixed top-0 left-0 right-0 z-50 border dark:border-white bg-white dark:bg-black bg-opacity-50 dark:bg-opacity-50'
+              className='fixed top-0 left-0 right-0 z-50 border bg-white bg-opacity-50 dark:border-white dark:bg-black dark:bg-opacity-50'
+              role='menubar'
             >
               <DockIcon>
                 <Tooltip>
@@ -153,8 +154,8 @@ const Navbar: React.FC = () => {
             </Dock>
           </div>
         </TooltipProvider>
-      </div>
-      <div className='sm:hidden bg-white fixed top-0 left-0 right-0 z-10'>
+      </nav>
+      <div className='fixed top-0 left-0 right-0 z-10 bg-white sm:hidden'>
         <BurgerMenu />
       </div>
     </>

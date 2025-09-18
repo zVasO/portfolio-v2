@@ -20,9 +20,49 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dylan Germann | Développeur Web | Freelance",
+  metadataBase: new URL("https://www.dgermann.dev"),
+  title: {
+    default: "Dylan Germann | Développeur Web Freelance",
+    template: "%s | Dylan Germann",
+  },
   description:
     "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+  keywords: [
+    "développeur web",
+    "freelance",
+    "full stack",
+    "next.js",
+    "react",
+    "laravel",
+    "symfony",
+    "typescript",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Dylan Germann | Développeur Web Freelance",
+    description:
+      "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+    url: "/",
+    type: "website",
+    siteName: "Dylan Germann",
+    images: [
+      {
+        url: "/img/profile-picture.webp",
+        width: 1200,
+        height: 630,
+        alt: "Portrait de Dylan Germann",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dylan Germann | Développeur Web Freelance",
+    description:
+      "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+    images: ["/img/profile-picture.webp"],
+  },
 };
 
 export default function RootLayout({
@@ -31,12 +71,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='fr'>
       <body
         className={`${spaceGrotesk.variable} ${plexMono.variable} antialiased`}
       >
+        <a className='skip-link' href='#main-content'>
+          Aller au contenu principal
+        </a>
         <Navbar />
-        <div className="min-vh-screen">
+        <div className="min-h-screen">
           {children}
         </div>
         <Footer />
