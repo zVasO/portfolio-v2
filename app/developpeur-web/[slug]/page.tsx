@@ -96,7 +96,7 @@ export default async function TechnologyPage({ params }: {
     return (
         <div className="bg-white text-slate-900">
             {/* HERO */}
-            <div className="relative overflow-hidden h-screen">
+            <div className="relative overflow-hidden min-h-screen">
                 <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-teal-50 opacity-90" />
                 <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-32">
                     <section className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
