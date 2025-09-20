@@ -1,17 +1,12 @@
 "use client";
-
-import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha"
 
 interface CaptchaProps {
     onVerify: (token: string | null) => void;
 }
 
 export default function Captcha({ onVerify }: CaptchaProps) {
-    const [token, setToken] = useState<string | null>(null);
-
     const handleChange = (value: string | null) => {
-        setToken(value);
         onVerify(value);
     };
 
