@@ -50,6 +50,16 @@ export function generateStaticParams() {
     );
 }
 
+const validateCity = (city: string) => {
+    const normalizedCity = city.toLowerCase();
+
+    if (!cities.includes(normalizedCity)) {
+        notFound();
+    }
+
+    return normalizedCity;
+};
+
 // ✅ Metadata SEO dynamique
 export async function generateMetadata({
                                            params,
@@ -57,26 +67,27 @@ export async function generateMetadata({
     params: Promise<{ slug: string; city: string }>;
 }): Promise<Metadata> {
     const { slug, city } = await params;
+    const safeCity = validateCity(city);
     const page = getTechnologyPage(slug);
 
     if (!page) return {};
 
-    const canonicalUrl = `${SITE_URL}/developpeur-web/${page.slug}/sur/${city}`;
+    const canonicalUrl = `${SITE_URL}/developpeur-web/${page.slug}/sur/${safeCity}`;
 
     return {
-        title: `Développeur web ${page.technology} sur ${capitalize(city)}`,
+        title: `Développeur web ${page.technology} sur ${capitalize(safeCity)}`,
         description: page.seoDescription,
         keywords: page.keywords,
         alternates: { canonical: canonicalUrl },
         openGraph: {
-            title: `Développeur web ${page.technology} sur ${capitalize(city)}`,
+            title: `Développeur web ${page.technology} sur ${capitalize(safeCity)}`,
             description: page.seoDescription,
             url: canonicalUrl,
             type: "website",
         },
         twitter: {
             card: "summary_large_image",
-            title: `Développeur web ${page.technology} sur ${capitalize(city)}`,
+            title: `Développeur web ${page.technology} sur ${capitalize(safeCity)}`,
             description: page.seoDescription,
         },
     };
@@ -88,6 +99,7 @@ export default async function TechnologyPage({
     params: Promise<{ slug: string; city: string }>;
 }) {
     const { slug, city } = await params;
+    const safeCity = validateCity(city);
     const page = getTechnologyPage(slug);
 
     if (!page) notFound();
@@ -114,10 +126,10 @@ export default async function TechnologyPage({
     const schemaData = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: `Développeur web ${page.technology} sur ${capitalize(city)}`,
+        name: `Développeur web ${page.technology} sur ${capitalize(safeCity)}`,
         description: page.seoDescription,
         areaServed: { "@type": "AdministrativeArea", name: "France" },
-        url: `${SITE_URL}/developpeur-web/${page.slug}/sur/${city}`,
+        url: `${SITE_URL}/developpeur-web/${page.slug}/sur/${safeCity}`,
         serviceType: `Développement ${page.technology}`,
         provider: {
             "@type": "Person",
@@ -140,11 +152,11 @@ export default async function TechnologyPage({
                         <div>
               <h1 className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700">
                 <Sparkles className="h-4 w-4" />
-                  Développeur web {page.technology} sur {capitalize(city)}
+              Développeur web {page.technology} sur {capitalize(safeCity)}
               </h1>
                             {/* ✅ H1 dynamique */}
                             <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-                                Développeur web {page.technology} sur {capitalize(city)}
+                                Développeur web {page.technology} sur {capitalize(safeCity)}
                             </h1>
                             <p className="mt-4 text-lg font-semibold text-indigo-600/90">
                                 {page.heroSubtitle}
