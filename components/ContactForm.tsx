@@ -1,10 +1,35 @@
 "use client";
+
+import { useState } from "react";
 import { sendContact } from "@/app/actions/contact";
 import { motion } from "framer-motion";
+import Captcha from "@/components/Captcha"; // <-- ajoute ton chemin
 
 export default function ContactForm() {
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleSubmit = async (formData: FormData) => {
+        if (!captchaToken) {
+            setError("❌ Veuillez valider le captcha");
+            return;
+        }
+
+        const result = await sendContact(formData, captchaToken);
+
+        if (result.success) {
+            setError(null);
+            // Tu peux ici afficher un toast de succès ou vider le formulaire
+        } else {
+            setError("❌ Captcha invalide, réessayez.");
+        }
+    };
+
     return (
-        <section className="mt-12 max-w-3xl mx-auto px-6 py-10 rounded-3xl shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm" id="contact">
+        <section
+            className="mt-12 max-w-3xl mx-auto px-6 py-10 rounded-3xl shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm"
+            id="contact"
+        >
             <h2 className="text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent">
                 Me contacter
             </h2>
@@ -12,7 +37,7 @@ export default function ContactForm() {
                 Une idée, un projet ou une collaboration ? Écris-moi !
             </p>
 
-            <form action={sendContact} className="mt-8 flex flex-col gap-6">
+            <form action={handleSubmit} className="mt-8 flex flex-col gap-6">
                 {/* Nom */}
                 <div>
                     <label
@@ -67,6 +92,9 @@ export default function ContactForm() {
                     />
                 </div>
 
+                {/* Captcha */}
+                <Captcha onVerify={setCaptchaToken} />
+
                 {/* CTA */}
                 <motion.button
                     whileHover={{ scale: 1.08 }}
@@ -76,6 +104,10 @@ export default function ContactForm() {
                 >
                     Envoyer
                 </motion.button>
+
+                {error && (
+                    <p className="text-center text-red-500 font-medium">{error}</p>
+                )}
             </form>
         </section>
     );

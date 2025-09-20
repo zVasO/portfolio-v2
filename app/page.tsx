@@ -129,7 +129,7 @@ export default function Home() {
                     label="LinkedIn"
                 />
                 <IconLink
-                    href="/contact"
+                    href="/#contact"
                     icon={<Mail />}
                     label="Email"
                     isInternal
