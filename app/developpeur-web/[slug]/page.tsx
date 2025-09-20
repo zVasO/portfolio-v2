@@ -76,12 +76,19 @@ export default async function TechnologyPage({ params }: {
         "@type": "ProfessionalService",
         name: page.heroTitle,
         description: page.seoDescription,
-        areaServed: {
-            "@type": "AdministrativeArea",
-            name: "France",
-        },
+        areaServed: page.city
+            ? {
+                  "@type": "City",
+                  name: page.city,
+              }
+            : {
+                  "@type": "AdministrativeArea",
+                  name: "France",
+              },
         url: `${SITE_URL}/developpeur-web/${page.slug}`,
-        serviceType: `Développement ${page.technology}`,
+        serviceType: page.city
+            ? `Développement ${page.technology} à ${page.city}`
+            : `Développement ${page.technology}`,
         provider: {
             "@type": "Person",
             name: "Dylan Germann",
