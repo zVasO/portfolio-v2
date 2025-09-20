@@ -3,25 +3,28 @@
 import { useState } from "react";
 import { sendContact } from "@/app/actions/contact";
 import { motion } from "framer-motion";
-import Captcha from "@/components/Captcha"; // <-- ajoute ton chemin
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
-    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+    const { executeRecaptcha } = useGoogleReCaptcha();
     const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (formData: FormData) => {
-        if (!captchaToken) {
-            setError("❌ Veuillez valider le captcha");
+        if (!executeRecaptcha) {
+            setError("❌ Captcha non prêt, réessayez.");
             return;
         }
 
-        const result = await sendContact(formData, captchaToken);
+        // ⚡ Récupère un token v3 lié à une "action"
+        const token = await executeRecaptcha("contact_form");
+
+        const result = await sendContact(formData, token);
 
         if (result.success) {
             setError(null);
-            // Tu peux ici afficher un toast de succès ou vider le formulaire
+            // ➝ toast de succès, reset du formulaire, etc.
         } else {
-            setError("❌ Captcha invalide, réessayez.");
+            setError("❌ Captcha invalide ou envoi échoué.");
         }
     };
 
@@ -91,9 +94,6 @@ export default function ContactForm() {
                         placeholder="Écris ton message ici..."
                     />
                 </div>
-
-                {/* Captcha */}
-                <Captcha onVerify={setCaptchaToken} />
 
                 {/* CTA */}
                 <motion.button

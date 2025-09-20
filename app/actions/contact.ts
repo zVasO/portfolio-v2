@@ -7,6 +7,8 @@ import {
 
 interface CaptchaResponse {
     success: boolean;
+    score: number;
+    action: string;
     "error-codes"?: string[];
 }
 
@@ -21,7 +23,7 @@ export async function sendContact(formData: FormData, token: string) {
             return { success: false, error: "Tous les champs sont obligatoires." };
         }
 
-        // 2. Vérification du captcha
+        // 2. Vérification du captcha v3
         const secret = process.env.RECAPTCHA_SECRET_KEY;
         if (!secret) {
             throw new Error("RECAPTCHA_SECRET_KEY manquant dans .env.local");
@@ -34,8 +36,10 @@ export async function sendContact(formData: FormData, token: string) {
         });
 
         const captcha = (await response.json()) as CaptchaResponse;
-        if (!captcha.success) {
-            return { success: false, error: "Captcha invalide." };
+
+        // score < 0.5 = suspicion de bot
+        if (!captcha.success || captcha.score < 0.5) {
+            return { success: false, error: "Captcha non valide ou bot suspect." };
         }
 
         // 3. Vérification de la clé API Brevo
@@ -65,6 +69,9 @@ export async function sendContact(formData: FormData, token: string) {
         return { success: true };
     } catch (error) {
         console.error("Erreur Brevo:", error);
-        return { success: false, error: "Une erreur est survenue lors de l'envoi." };
+        return {
+            success: false,
+            error: "Une erreur est survenue lors de l'envoi.",
+        };
     }
 }
