@@ -50,21 +50,12 @@ export const metadata: Metadata = {
         url: "/",
         type: "website",
         siteName: "Dylan Germann",
-        images: [
-            {
-                url: "/img/profile-picture.webp",
-                width: 1200,
-                height: 630,
-                alt: "Portrait de Dylan Germann",
-            },
-        ],
     },
     twitter: {
-        card: "summary_large_image",
+        card: "summary",
         title: "Dylan Germann | Développeur Web Freelance",
         description:
             "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
-        images: ["/img/profile-picture.webp"],
     },
 };
 

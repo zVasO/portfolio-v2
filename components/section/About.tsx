@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import { Book, Laptop, Plane } from "lucide-react";
-import Image from "next/image"
 
 const About = () => {
   return (
@@ -23,29 +22,7 @@ const About = () => {
          A propos de moi
        </motion.h2>
 
-       <div className='grid md:grid-cols-[2fr,3fr] gap-8 items-start'>
-         <div>
-           <motion.div
-             className='relative'
-             initial={{ x: -20, opacity: 0 }}
-             whileInView={{ x: 0, opacity: 1 }}
-             transition={{ delay: 0.2, duration: 0.5 }}
-             viewport={{ once: true }}
-           >
-             <div className='aspect-square rounded-2xl overflow-hidden flex'>
-               <Image
-                 src='/img/profile-picture.webp'
-                 fill
-                 sizes='(max-width: 768px) 240px, 320px'
-                 className='rounded-md object-cover'
-                 priority
-                 alt='Portrait de Dylan Germann'
-               />
-             </div>
-             <div className='absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-full opacity-20 blur-2xl' />
-           </motion.div>
-         </div>
-
+       <div className='max-w-3xl mx-auto'>
          <motion.div
            className='space-y-6'
            initial={{ x: 20, opacity: 0 }}
