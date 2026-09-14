@@ -6,8 +6,8 @@ import { ArrowRight, CheckCircle2, Quote, Sparkles } from "lucide-react";
 
 import ContactForm from "@/components/ContactForm";
 import { getTechnologyPage, technologySlugs } from "@/lib/technology-pages";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/site";
 
-const SITE_URL = "https://www.dgermann.dev";
 
 // ✅ Tableau des 30 plus grandes villes de France
 const cities = [
@@ -135,9 +135,9 @@ export default async function TechnologyPage({
             "@type": "Person",
             name: "Dylan Germann",
             sameAs: [
-                "https://www.dgermann.dev",
-                "https://github.com/zVasO",
-                "https://www.linkedin.com/in/dylan-germann/",
+                SITE_URL,
+                SOCIAL_LINKS.github,
+                SOCIAL_LINKS.linkedin,
             ],
         },
     } as const;
@@ -150,11 +150,10 @@ export default async function TechnologyPage({
                 <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-32">
                     <section className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
                         <div>
-              <h1 className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700">
-                <Sparkles className="h-4 w-4" />
-              Développeur web {page.technology} sur {capitalize(safeCity)}
-              </h1>
-                            {/* ✅ H1 dynamique */}
+                            <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700">
+                                <Sparkles className="h-4 w-4" />
+                                Développeur web {page.technology} sur {capitalize(safeCity)}
+                            </span>
                             <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
                                 Développeur web {page.technology} sur {capitalize(safeCity)}
                             </h1>
@@ -358,7 +357,7 @@ export default async function TechnologyPage({
                             <ArrowRight className="h-4 w-4" />
                         </Link>
                         <Link
-                            href="https://cal.com/dgermann/30min"
+                            href={SOCIAL_LINKS.booking}
                             className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
                         >
                             Appel découverte
