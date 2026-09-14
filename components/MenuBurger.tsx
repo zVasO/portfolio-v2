@@ -5,7 +5,6 @@ import {
   User,
   Code,
   BriefcaseBusiness,
-  AppWindowMac,
   Linkedin,
   Github,
   Mail,
@@ -135,15 +134,6 @@ const BurgerMenu = () => {
                   onClick={handleLinkClick}
                 />
               </div>
-              <div className='flex items-center gap-2'>
-                <IconLink
-                  href='/#projects'
-                  icon={<AppWindowMac />}
-                  label='Projets'
-                  isInternal
-                  onClick={handleLinkClick}
-                />
-              </div>
               <hr />
               <div className='flex items-center gap-2'>
                 <IconLink
@@ -164,7 +154,7 @@ const BurgerMenu = () => {
               <hr />
               <div className='flex items-center gap-2'>
                 <IconLink
-                  href='/contact'
+                  href='/#contact'
                   icon={<Mail />}
                   label='Me contacter'
                   isInternal

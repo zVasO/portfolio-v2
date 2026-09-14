@@ -1,12 +1,13 @@
-import type {Metadata} from "next";
-import {IBM_Plex_Mono, Space_Grotesk} from "next/font/google";
-import {Analytics} from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import React from "react";
+
 import "./globals.css";
 import Navbar from "@/components/section/Navbar";
 import Footer from "@/components/section/Footer";
-import Providers from "@/components/Providers";
-import React from "react";
-import {SpeedInsights} from "@vercel/speed-insights/next";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -23,13 +24,12 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://www.dgermann.dev"),
+    metadataBase: new URL(SITE_URL),
     title: {
-        default: "Dylan Germann | Développeur Web Freelance",
-        template: "%s | Dylan Germann",
+        default: SITE_TITLE,
+        template: `%s | ${SITE_NAME}`,
     },
-    description:
-        "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+    description: SITE_DESCRIPTION,
     keywords: [
         "développeur web",
         "freelance",
@@ -44,44 +44,37 @@ export const metadata: Metadata = {
         canonical: "/",
     },
     openGraph: {
-        title: "Dylan Germann | Développeur Web Freelance",
-        description:
-            "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
         url: "/",
         type: "website",
-        siteName: "Dylan Germann",
+        siteName: SITE_NAME,
+        locale: "fr_FR",
     },
     twitter: {
-        card: "summary",
-        title: "Dylan Germann | Développeur Web Freelance",
-        description:
-            "Développeur web freelance, spécialisé dans la création de sites et d’applications modernes. Contactez-moi pour vos projets sur mesure.",
+        card: "summary_large_image",
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
     },
 };
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+    children,
+}: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang='fr'>
-        <Providers>
-            <body
-                className={`${spaceGrotesk.variable} ${plexMono.variable} antialiased`}
-            >
-            <a className='skip-link' href='#main-content'>
-                Aller au contenu principal
-            </a>
-            <Navbar/>
-            <div className="min-h-screen">
-                {children}
-            </div>
-            <Footer/>
-            <Analytics/>
-            <SpeedInsights />
+        <html lang="fr" className="scroll-smooth">
+            <body className={`${spaceGrotesk.variable} ${plexMono.variable} antialiased`}>
+                <a className="skip-link" href="#main-content">
+                    Aller au contenu principal
+                </a>
+                <Navbar />
+                <div className="min-h-screen">{children}</div>
+                <Footer />
+                <Analytics />
+                <SpeedInsights />
             </body>
-        </Providers>
         </html>
     );
 }

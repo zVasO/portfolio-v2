@@ -2,7 +2,6 @@
 import React from "react";
 import { Dock, DockIcon } from "../ui/dock";
 import {
-  AppWindowMac,
   BriefcaseBusiness,
   Code,
   Github,
@@ -27,11 +26,11 @@ const Navbar: React.FC = () => {
           <div className='relative'>
             <Dock
               direction='middle'
-              className='fixed top-0 left-0 right-0 z-50 border bg-white bg-opacity-50 dark:border-white dark:bg-black dark:bg-opacity-50'
+              className='fixed top-0 left-0 right-0 z-50 border bg-white/70'
             >
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='/'
                       icon={<Home />}
@@ -47,7 +46,7 @@ const Navbar: React.FC = () => {
               <Separator orientation='vertical' className='h-full py-2' />
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='/#about'
                       icon={<User />}
@@ -62,7 +61,7 @@ const Navbar: React.FC = () => {
               </DockIcon>
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='/#stack'
                       icon={<Code />}
@@ -77,7 +76,7 @@ const Navbar: React.FC = () => {
               </DockIcon>
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='/#experience'
                       icon={<BriefcaseBusiness />}
@@ -90,29 +89,14 @@ const Navbar: React.FC = () => {
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <IconLink
-                      href='/#projects'
-                      icon={<AppWindowMac />}
-                      label='Projets'
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Projets</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
               <Separator orientation='vertical' className='h-full py-2' />
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='https://github.com/zVasO'
                       icon={<Github />}
-                      label='My github'
+                      label='Mon GitHub'
                     />
                   </TooltipTrigger>
                   <TooltipContent>
@@ -122,11 +106,11 @@ const Navbar: React.FC = () => {
               </DockIcon>
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
                       href='https://www.linkedin.com/in/dylan-germann/'
                       icon={<Linkedin />}
-                      label='My linkedin'
+                      label='Mon LinkedIn'
                     />
                   </TooltipTrigger>
                   <TooltipContent>
@@ -137,11 +121,11 @@ const Navbar: React.FC = () => {
               <Separator orientation='vertical' className='h-full py-2' />
               <DockIcon>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <IconLink
-                      href='#contact'
+                      href='/#contact'
                       icon={<Mail />}
-                      label='My linkedin'
+                      label='Me contacter'
                       isInternal
                     />
                   </TooltipTrigger>
