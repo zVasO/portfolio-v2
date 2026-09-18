@@ -5,8 +5,8 @@ import { ArrowRight, CheckCircle2, Quote, Sparkles } from "lucide-react";
 
 import ContactForm from "@/components/ContactForm";
 import { getTechnologyPage, technologySlugs } from "@/lib/technology-pages";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/site";
 
-const SITE_URL = "https://www.dgermann.dev";
 
 
 export function generateStaticParams() {
@@ -86,9 +86,9 @@ export default async function TechnologyPage({ params }: {
             "@type": "Person",
             name: "Dylan Germann",
             sameAs: [
-                "https://www.dgermann.dev",
-                "https://github.com/zVasO",
-                "https://www.linkedin.com/in/dylan-germann/",
+                SITE_URL,
+                SOCIAL_LINKS.github,
+                SOCIAL_LINKS.linkedin,
             ],
         },
     } as const;
@@ -280,7 +280,7 @@ export default async function TechnologyPage({ params }: {
                             <ArrowRight className="h-4 w-4" />
                         </Link>
                         <Link
-                            href="https://cal.com/dgermann/30min"
+                            href={SOCIAL_LINKS.booking}
                             className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
                         >
                             Appel découverte

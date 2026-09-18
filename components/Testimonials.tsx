@@ -7,7 +7,6 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 interface Testimonial {
     name: string;
     role: string;
-    platform: "Malt" | "Codeur";
     feedback: string;
 }
 
@@ -15,21 +14,18 @@ const testimonials: Testimonial[] = [
     {
         name: "Emilie de Auduin Réalisation",
         role: "Client sur Malt",
-        platform: "Malt",
         feedback:
             "Très réactif et sérieux, je repasserai par Dylan avec plaisir pour d'autres projets.",
     },
     {
         name: "Patrick de Iziparty",
         role: "Client sur Malt",
-        platform: "Malt",
         feedback:
             "Réactivité, suivi et résultat. Je recommande vivement Dylan qui a assuré sa mission de manière très professionnelle. Je retravaillerai avec lui certainement pour de prochaines missions.",
     },
     {
         name: "Hugues de Air-papillon",
         role: "Client sur Codeur.com",
-        platform: "Codeur",
         feedback:
             "Compréhension affutée du besoin, résolution claire efficace en parfaite correspondance avec le problème posé, si on le demandais, je dirai que c'est tip top !",
     },
@@ -73,7 +69,7 @@ export default function Testimonials() {
             <h2 className="text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent">
                 Témoignages
             </h2>
-            <p className="mt-3 text-center text-gray-600 dark:text-gray-300">
+            <p className="mt-3 text-center text-gray-600">
                 Voici quelques retours de mes clients sur Malt et Codeur.
             </p>
 
@@ -82,7 +78,7 @@ export default function Testimonials() {
                 <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                         key={index}
-                        className="absolute w-full rounded-3xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 shadow-xl cursor-grab active:cursor-grabbing"
+                        className="absolute w-full rounded-3xl bg-white/80 backdrop-blur-sm p-8 shadow-xl cursor-grab active:cursor-grabbing"
                         {...slideAnimation}
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
@@ -105,15 +101,15 @@ export default function Testimonials() {
                                 {testimonials[index].name.charAt(0)}
                             </div>
                             <div className="ml-4">
-                                <h4 className="font-semibold text-gray-900 dark:text-gray-100">
+                                <h3 className="font-semibold text-gray-900">
                                     {testimonials[index].name}
-                                </h4>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">
+                                </h3>
+                                <span className="text-sm text-gray-500">
                   {testimonials[index].role}
                 </span>
                             </div>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed">
                             “{testimonials[index].feedback}”
                         </p>
                     </motion.div>

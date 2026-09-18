@@ -1,29 +1,20 @@
 import Link from "next/link";
 
 import { technologyPages } from "@/lib/technology-pages";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/site";
 
 const mainLinks = [
   { href: "/", label: "Accueil" },
   { href: "/#about", label: "À propos" },
   { href: "/#stack", label: "Stack technique" },
   { href: "/#experience", label: "Expériences" },
-  { href: "/#projects", label: "Projets" },
   { href: "/#contact", label: "Contact" },
 ];
 
 const socialLinks = [
-  {
-    href: "https://github.com/zVasO",
-    label: "GitHub",
-  },
-  {
-    href: "https://www.linkedin.com/in/dylan-germann/",
-    label: "LinkedIn",
-  },
-  {
-    href: "mailto:dev.dyger@gmail.com",
-    label: "dev.dyger@gmail.com",
-  },
+  { href: SOCIAL_LINKS.github, label: "GitHub" },
+  { href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
+  { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
 ];
 
 const Footer = () => {

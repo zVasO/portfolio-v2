@@ -1,6 +1,4 @@
 import type { ReactNode } from "react";
-import type { Variants } from "framer-motion";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import TsLogo from "@/components/tech-logo/TsLogo";
@@ -11,7 +9,7 @@ import LaravelLogo from "@/components/tech-logo/LaravelLogo";
 import SymfonyLogo from "@/components/tech-logo/SymfonyLogo";
 import NextLogo from "@/components/tech-logo/NextLogo";
 import ReactLogo from "@/components/tech-logo/ReactLogo";
-import TailwindLogo from "@/components/tech-logo/TaiwindLogo";
+import TailwindLogo from "@/components/tech-logo/TailwindLogo";
 
 type Technology = {
   name: string;
@@ -68,7 +66,7 @@ const technologies: readonly Technology[] = [
   {
     name: "Next.js",
     description: "Rendu hybride et performances optimales pour le frontend.",
-    icon: <NextLogo className="h-12 w-12 fill-black dark:fill-white" />,
+    icon: <NextLogo className="h-12 w-12 fill-black" />,
     accent: "from-gray-500/30 via-gray-500/10 to-transparent",
     border: "border-gray-500/30",
   },
@@ -97,7 +95,7 @@ const technologies: readonly Technology[] = [
   {
     name: "Tailwind CSS",
     description:
-        "Système de design utilitaire pour prototyper à la vitesse de l&apos;éclair.",
+        "Système de design utilitaire pour prototyper à la vitesse de l’éclair.",
     icon: <TailwindLogo className="h-12 w-12" />,
     accent: "from-teal-400/30 via-teal-400/10 to-transparent",
     border: "border-teal-400/30",
@@ -118,92 +116,48 @@ const technologies: readonly Technology[] = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.45,
-      ease: "easeOut" as const, // ✅ typage corrigé
-    },
-  },
-};
-
 const Stack = () => {
   return (
-      <motion.section
+      <section
           id="stack"
-          className="min-h-screen bg-gray-50 dark:bg-gray-900 py-24 px-4 sm:px-6 lg:px-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="min-h-screen bg-gray-50 py-24 px-4 sm:px-6 lg:px-10"
       >
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-          <motion.h2
-              className="bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-          >
+          <h2 className="reveal bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
             Technical Stack
-          </motion.h2>
-          <motion.p
-              className="mt-6 max-w-3xl text-lg text-gray-600 dark:text-gray-300"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-          >
+          </h2>
+          <p className="reveal mt-6 max-w-3xl text-lg text-gray-600">
             Un écosystème d&apos;outils modernes, sélectionnés pour construire des
             expériences numériques haut de gamme, performantes et fiables.
-          </motion.p>
+          </p>
         </div>
 
-        <motion.div
-            className="mx-auto mt-16 grid w-full max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-        >
+        <div className="mx-auto mt-16 grid w-full max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {technologies.map((tech) => (
-              <motion.article
+              <article
                   key={tech.name}
-                  variants={cardVariants}
-                  className={`group relative overflow-hidden rounded-3xl border ${tech.border} bg-white/80 p-7 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-950/60`}
+                  className={`reveal group relative overflow-hidden rounded-3xl border ${tech.border} bg-white/80 p-7 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl`}
               >
                 <div
                     className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tech.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
                 />
                 <div className="relative flex items-start justify-between gap-6">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-inner shadow-black/10 dark:bg-gray-900/80">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-inner shadow-black/10">
                     {tech.icon}
                   </div>
                 </div>
                 <div className="relative mt-6 space-y-3 text-left">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-semibold text-gray-900">
                     {tech.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  <p className="text-sm leading-relaxed text-gray-600">
                     {tech.description}
                   </p>
                 </div>
-              </motion.article>
+              </article>
           ))}
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
   );
 };
 
