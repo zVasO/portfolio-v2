@@ -19,16 +19,17 @@ export default function Home() {
     <main id="main-content">
       <section className="mx-auto max-w-6xl px-6 pb-24 pt-36 sm:pt-44">
         <h1 className={`max-w-6xl text-[clamp(2.75rem,8.5vw,7.5rem)] leading-[0.92] ${fadeIn}`}>
-          Dylan Germann fabrique des sites et des applications web{" "}
+          Je fabrique des sites et des applications web{" "}
           <span className="mark">qui tiennent la route</span>.
         </h1>
 
         <div className={`mt-14 grid gap-12 md:grid-cols-2 ${fadeIn} delay-150`}>
           <div>
             <p className="max-w-lg text-xl leading-relaxed text-ink-2">
-              Développeur full stack freelance. PHP côté serveur, TypeScript côté client. Passé par
-              deux éditeurs d’ERP web-to-print et une agence web avant de travailler à mon compte.
-              Je réponds vite, je livre ce qui est prévu, et mes clients reviennent.
+              Je suis Dylan Germann, développeur full stack freelance. PHP côté serveur, TypeScript
+              côté client. Passé par deux éditeurs d’ERP web-to-print et une agence web avant de
+              travailler à mon compte. Je réponds vite, je livre ce qui est prévu, et mes clients
+              reviennent.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#contact" className="btn-primary">
