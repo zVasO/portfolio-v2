@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.dgermann.dev/
+Host: https://www.dgermann.dev
 
 # Sitemaps
 Sitemap: https://www.dgermann.dev/sitemap.xml

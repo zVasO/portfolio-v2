@@ -1,73 +1,21 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
+        paper: { DEFAULT: "#F4F1EA", 2: "#ECE8DF" },
+        ink: { DEFAULT: "#151515", 2: "#4A4945" },
+        muted: "#7C7A72",
+        line: "#D6D2C6",
+        mark: "#E3FF4F",
+        accent: { DEFAULT: "#151515", hover: "#E3FF4F" },
       },
       fontFamily: {
-        sans: [
-          "var(--font-space-grotesk)",
-          "Inter",
-          "SF Pro Display",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "sans-serif",
-        ],
-        mono: [
-          "var(--font-plex-mono)",
-          "JetBrains Mono",
-          "Fira Code",
-          "monospace",
-        ],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      animation: {
-        fadeIn: "fadeIn 0.3s ease-out both",
-      },
+      animation: { fadeIn: "fadeIn 0.3s ease-out both" },
       keyframes: {
         fadeIn: {
           from: { opacity: "0", transform: "translateY(-4px)" },

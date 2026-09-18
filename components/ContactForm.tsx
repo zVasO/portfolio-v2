@@ -4,11 +4,14 @@ import { useRef, useState } from "react";
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { sendContact } from "@/app/actions/contact";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/site";
 
 type Status = { type: "idle" } | { type: "pending" } | { type: "success" } | { type: "error"; message: string };
 
-const inputClasses =
-    "w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500";
+const fieldClasses =
+    "w-full border-b-2 border-line bg-transparent py-3 text-lg text-ink placeholder:text-muted/70 transition-colors focus:border-ink focus:outline-none focus-visible:ring-0";
+
+const labelClasses = "label block";
 
 function ContactFormInner() {
     const { executeRecaptcha } = useGoogleReCaptcha();
@@ -41,26 +44,20 @@ function ContactFormInner() {
     const pending = status.type === "pending";
 
     return (
-        <form ref={formRef} action={handleSubmit} className="mt-8 flex flex-col gap-6">
+        <form ref={formRef} action={handleSubmit} className="flex flex-col gap-8">
             <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
-                    Nom
-                </label>
-                <input type="text" id="name" name="name" required maxLength={100} autoComplete="name" className={inputClasses} placeholder="Ton nom" />
+                <label htmlFor="name" className={labelClasses}>Nom</label>
+                <input type="text" id="name" name="name" required maxLength={100} autoComplete="name" className={fieldClasses} placeholder="Votre nom" />
             </div>
 
             <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
-                    Email
-                </label>
-                <input type="email" id="email" name="email" required maxLength={254} autoComplete="email" className={inputClasses} placeholder="ton@email.com" />
+                <label htmlFor="email" className={labelClasses}>Email</label>
+                <input type="email" id="email" name="email" required maxLength={254} autoComplete="email" className={fieldClasses} placeholder="vous@exemple.com" />
             </div>
 
             <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-700">
-                    Message
-                </label>
-                <textarea id="message" name="message" required maxLength={5000} rows={5} className={`${inputClasses} resize-none`} placeholder="Écris ton message ici..." />
+                <label htmlFor="message" className={labelClasses}>Message</label>
+                <textarea id="message" name="message" required maxLength={5000} rows={4} className={`${fieldClasses} resize-none`} placeholder="Parlez-moi de votre projet…" />
             </div>
 
             {/* Honeypot anti-spam : invisible pour les humains, ignoré par les lecteurs d'écran */}
@@ -69,44 +66,52 @@ function ContactFormInner() {
                 <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
             </div>
 
-            <button
-                type="submit"
-                disabled={pending}
-                className="w-full self-center rounded-full bg-gradient-to-r from-teal-500 to-indigo-500 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:w-auto"
-            >
-                {pending ? "Envoi en cours…" : "Envoyer"}
-            </button>
-
-            <p role="status" aria-live="polite" className="min-h-6 text-center font-medium">
-                {status.type === "success" && (
-                    <span className="text-teal-600">Merci, ton message a bien été envoyé. Je te réponds rapidement.</span>
-                )}
-                {status.type === "error" && <span className="text-red-600">{status.message}</span>}
-            </p>
+            <div className="flex flex-wrap items-center gap-6">
+                <button type="submit" disabled={pending} className="btn-primary disabled:cursor-not-allowed disabled:opacity-60">
+                    {pending ? "Envoi en cours…" : "Envoyer le message"}
+                </button>
+                <p role="status" aria-live="polite" className="text-sm">
+                    {status.type === "success" && <span className="mark">Merci, votre message a bien été envoyé. Je vous réponds rapidement.</span>}
+                    {status.type === "error" && <span className="font-medium text-ink">{status.message}</span>}
+                </p>
+            </div>
         </form>
     );
 }
 
 export default function ContactForm() {
     return (
-        <section
-            id="contact"
-            className="mx-auto mt-12 max-w-3xl rounded-3xl bg-white/80 px-6 py-10 shadow-xl backdrop-blur-sm"
-        >
-            <h2 className="bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-center text-3xl font-bold text-transparent sm:text-4xl">
-                Me contacter
-            </h2>
-            <p className="mt-3 text-center text-gray-600">
-                Une idée, un projet ou une collaboration ? Écris-moi !
-            </p>
+        <section id="contact" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
+            <div className="reveal border-t-2 border-ink pt-6">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl">Un projet ? On en parle.</h2>
+                <p className="mt-6 max-w-2xl text-xl text-ink-2">
+                    Le plus simple est un email. Je réponds sous 48 heures, souvent bien avant.
+                </p>
+                <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="link mt-8 inline-block break-all text-2xl font-semibold sm:text-4xl"
+                >
+                    {CONTACT_EMAIL}
+                </a>
+                <p className="mt-4 text-base text-ink-2">
+                    Ou{" "}
+                    <a href={SOCIAL_LINKS.booking} target="_blank" rel="noopener noreferrer" className="link">
+                        réservez directement un créneau de 30 minutes
+                    </a>
+                    .
+                </p>
+            </div>
 
-            {/* Le script reCAPTCHA n'est chargé que là où il sert : sur cette section. */}
-            <GoogleReCaptchaProvider
-                reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
-                scriptProps={{ async: true, defer: true, appendTo: "head" }}
-            >
-                <ContactFormInner />
-            </GoogleReCaptchaProvider>
+            <div className="reveal mt-16 max-w-3xl">
+                <p className="label mb-8">Ou via le formulaire</p>
+                {/* Le script reCAPTCHA n'est chargé que là où il sert : sur cette section. */}
+                <GoogleReCaptchaProvider
+                    reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+                    scriptProps={{ async: true, defer: true, appendTo: "head" }}
+                >
+                    <ContactFormInner />
+                </GoogleReCaptchaProvider>
+            </div>
         </section>
     );
 }

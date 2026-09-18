@@ -94,54 +94,54 @@ export default async function TechnologyPage({ params }: {
     } as const;
 
     return (
-        <div className="bg-white text-slate-900">
+        <main id="main-content" className="bg-paper text-ink">
             {/* HERO */}
             <div className="relative overflow-hidden min-h-screen">
-                <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-teal-50 opacity-90" />
+                <div className="absolute inset-0 bg-paper-2 opacity-90" />
                 <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-32">
                     <section className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
                         <div>
-                            <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-paper-2 px-4 py-2 text-sm font-medium text-accent">
                                 <Sparkles className="h-4 w-4" />
                                 Développeur {page.technology}
                             </span>
-                            <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                            <h1 className="mt-6 text-4xl tracking-tight text-ink sm:text-5xl">
                                 {page.heroTitle}
                             </h1>
-                            <p className="mt-4 text-lg font-semibold text-indigo-600/90">
+                            <p className="mt-4 text-lg font-semibold text-accent">
                                 {page.heroSubtitle}
                             </p>
-                            <p className="mt-5 text-lg leading-relaxed text-slate-700">
+                            <p className="mt-5 text-lg leading-relaxed text-ink-2">
                                 {page.heroDescription}
                             </p>
                             <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <Link
                                     href="#contact"
-                                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition hover:scale-[1.02] hover:shadow-xl"
+                                    className="inline-flex items-center gap-2 rounded-full bg-ink hover:bg-accent px-6 py-3 text-base font-semibold text-white transition hover:scale-[1.02]"
                                 >
                                     En discuter
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                                 <Link
                                     href="mailto:dev.dyger@gmail.com"
-                                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
+                                    className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-base font-semibold text-ink-2 transition hover:border-ink hover:text-accent"
                                 >
                                     Recevoir une proposition
                                 </Link>
                             </div>
                         </div>
-                        <div className="space-y-6 rounded-3xl border border-slate-200 bg-white/70 p-8 shadow-xl">
-                            <h2 className="text-xl font-semibold text-slate-900">
+                        <div className="space-y-6 rounded-lg border border-line bg-white p-8 shadow-xl">
+                            <h2 className="text-xl text-ink">
                                 Résultats obtenus
                             </h2>
                             <ul className="grid gap-5">
                                 {page.results.map((result) => (
-                                    <li key={result.label} className="rounded-2xl bg-slate-50 p-5">
-                                        <div className="text-3xl font-bold text-teal-600">{result.value}</div>
-                                        <p className="mt-1 text-sm uppercase tracking-wide text-slate-500">
+                                    <li key={result.label} className="rounded-md bg-paper-2 p-5">
+                                        <div className="text-3xl font-bold text-accent">{result.value}</div>
+                                        <p className="mt-1 text-sm uppercase tracking-wide text-ink-2">
                                             {result.label}
                                         </p>
-                                        <p className="mt-2 text-base text-slate-600">{result.description}</p>
+                                        <p className="mt-2 text-base text-ink-2">{result.description}</p>
                                     </li>
                                 ))}
                             </ul>
@@ -156,34 +156,34 @@ export default async function TechnologyPage({ params }: {
                     {page.highlights.map((highlight) => (
                         <div
                             key={highlight.title}
-                            className="group rounded-3xl border border-slate-200 bg-white p-8 shadow-md transition hover:border-teal-500/80 hover:shadow-lg"
+                            className="group rounded-lg border border-line bg-white p-8 transition hover:border-ink"
                         >
-                            <CheckCircle2 className="h-8 w-8 text-teal-600" />
-                            <h3 className="mt-4 text-xl font-semibold text-slate-900">{highlight.title}</h3>
-                            <p className="mt-3 text-slate-600">{highlight.description}</p>
+                            <CheckCircle2 className="h-8 w-8 text-accent" />
+                            <h3 className="mt-4 text-xl text-ink">{highlight.title}</h3>
+                            <p className="mt-3 text-ink-2">{highlight.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* SERVICES */}
-            <section className="bg-gradient-to-r from-teal-50 via-white to-indigo-50 py-20">
+            <section className="bg-paper-2 py-20">
                 <div className="mx-auto max-w-6xl px-6">
                     <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
+                            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
                                 Services {page.technology}
                             </p>
-                            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+                            <h2 className="mt-3 text-3xl text-ink sm:text-4xl">
                                 Un accompagnement complet, du diagnostic à la croissance
                             </h2>
-                            <p className="mt-4 max-w-2xl text-lg text-slate-600">
+                            <p className="mt-4 max-w-2xl text-lg text-ink-2">
                                 Chaque prestation est pensée pour vous livrer un produit clé en main et une équipe autonome sur la technologie {page.technology}.
                             </p>
                         </div>
                         <Link
                             href="#contact"
-                            className="inline-flex items-center gap-2 self-start rounded-full border border-teal-500 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-teal-600 transition hover:bg-teal-500/10"
+                            className="inline-flex items-center gap-2 self-start rounded-full border border-line px-5 py-2 text-sm font-semibold uppercase tracking-wide text-accent transition hover:bg-accent/10"
                         >
                             Planifier un échange
                             <ArrowRight className="h-4 w-4" />
@@ -191,9 +191,9 @@ export default async function TechnologyPage({ params }: {
                     </div>
                     <div className="mt-12 grid gap-8 lg:grid-cols-3">
                         {page.services.map((service) => (
-                            <div key={service.title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                                <h3 className="text-2xl font-semibold text-slate-900">{service.title}</h3>
-                                <p className="mt-4 text-slate-600">{service.description}</p>
+                            <div key={service.title} className="rounded-lg border border-line bg-white p-8">
+                                <h3 className="text-2xl text-ink">{service.title}</h3>
+                                <p className="mt-4 text-ink-2">{service.description}</p>
                             </div>
                         ))}
                     </div>
@@ -203,42 +203,42 @@ export default async function TechnologyPage({ params }: {
             {/* PROCESS */}
             <section className="mx-auto max-w-6xl px-6 py-20">
                 <div className="mx-auto max-w-3xl text-center">
-                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
+                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
                         Méthodologie
                     </p>
-                    <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+                    <h2 className="mt-3 text-3xl text-ink sm:text-4xl">
                         Une collaboration transparente et orientée résultats
                     </h2>
-                    <p className="mt-4 text-lg text-slate-600">
+                    <p className="mt-4 text-lg text-ink-2">
                         Nous travaillons main dans la main avec vos équipes marketing, produit et tech pour livrer rapidement des fonctionnalités qui comptent.
                     </p>
                 </div>
                 <div className="mt-14 grid gap-8 md:grid-cols-2">
                     {processSteps.map((step) => (
-                        <div key={step.title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                            <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
-                            <p className="mt-3 text-slate-600">{step.description}</p>
+                        <div key={step.title} className="rounded-lg border border-line bg-white p-8">
+                            <h3 className="text-xl text-ink">{step.title}</h3>
+                            <p className="mt-3 text-ink-2">{step.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* TESTIMONIALS */}
-            <section className="bg-gradient-to-r from-indigo-50 via-white to-teal-50 py-20">
+            <section className="bg-paper-2 py-20">
                 <div className="mx-auto flex max-w-5xl flex-col gap-12 px-6 lg:flex-row lg:items-center">
                     <div className="flex-1 space-y-6">
-                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
+                        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">
                             Témoignages
                         </p>
-                        <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+                        <h2 className="text-3xl text-ink sm:text-4xl">
                             Des clients accompagnés sur leurs enjeux {page.technology}
                         </h2>
-                        <p className="text-lg text-slate-600">
+                        <p className="text-lg text-ink-2">
                             Chaque collaboration est structurée autour d’objectifs business clairs et d’indicateurs suivis semaine après semaine.
                         </p>
                         <Link
                             href="https://www.linkedin.com/in/dylan-germann/"
-                            className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
+                            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2 text-sm font-semibold uppercase tracking-wide text-ink-2 transition hover:border-ink hover:text-accent"
                         >
                             Voir plus d’avis
                             <ArrowRight className="h-4 w-4" />
@@ -248,13 +248,13 @@ export default async function TechnologyPage({ params }: {
                         {page.testimonials.map((testimonial) => (
                             <blockquote
                                 key={testimonial.author}
-                                className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                                className="relative overflow-hidden rounded-lg border border-line bg-white p-8"
                             >
-                                <Quote className="h-12 w-12 text-teal-500" />
-                                <p className="mt-6 text-lg italic text-slate-700">“{testimonial.quote}”</p>
+                                <Quote className="h-12 w-12 text-accent" />
+                                <p className="mt-6 text-lg italic text-ink-2">“{testimonial.quote}”</p>
                                 <footer className="mt-6">
-                                    <p className="font-semibold text-slate-900">{testimonial.author}</p>
-                                    <p className="text-sm text-slate-500">{testimonial.role}</p>
+                                    <p className="font-semibold text-ink">{testimonial.author}</p>
+                                    <p className="text-sm text-ink-2">{testimonial.role}</p>
                                 </footer>
                             </blockquote>
                         ))}
@@ -264,24 +264,24 @@ export default async function TechnologyPage({ params }: {
 
             {/* CTA */}
             <section className="mx-auto max-w-5xl px-6 py-20">
-                <div className="rounded-3xl border border-teal-200 bg-gradient-to-r from-teal-50 via-white to-indigo-50 p-12 text-center shadow-sm">
-                    <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+                <div className="rounded-lg border border-line bg-paper-2 p-12 text-center">
+                    <h2 className="text-3xl text-ink sm:text-4xl">
                         Parlons de votre prochain projet {page.technology}
                     </h2>
-                    <p className="mt-4 text-lg text-slate-700">
+                    <p className="mt-4 text-lg text-ink-2">
                         En 48 heures, vous recevez un plan d’action concret, des recommandations techniques et un devis transparent.
                     </p>
                     <div className="mt-8 flex flex-wrap justify-center gap-4">
                         <Link
                             href="#contact"
-                            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-indigo-500 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:scale-[1.02]"
+                            className="inline-flex items-center gap-2 rounded-full bg-ink hover:bg-accent px-6 py-3 text-base font-semibold text-white transition hover:scale-[1.02]"
                         >
                             Réserver un créneau
                             <ArrowRight className="h-4 w-4" />
                         </Link>
                         <Link
                             href={SOCIAL_LINKS.booking}
-                            className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-teal-500 hover:text-teal-600"
+                            className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-base font-semibold text-ink-2 transition hover:border-ink hover:text-accent"
                         >
                             Appel découverte
                         </Link>
@@ -290,22 +290,22 @@ export default async function TechnologyPage({ params }: {
             </section>
 
             {/* FAQ */}
-            <section className="bg-gradient-to-r from-white via-teal-50 to-indigo-50 py-20">
+            <section className="bg-paper-2 py-20">
                 <div className="mx-auto max-w-5xl px-6">
-                    <h2 className="text-center text-3xl font-bold text-slate-900 sm:text-4xl">FAQ {page.technology}</h2>
-                    <p className="mt-4 text-center text-lg text-slate-600">
+                    <h2 className="text-center text-3xl text-ink sm:text-4xl">FAQ {page.technology}</h2>
+                    <p className="mt-4 text-center text-lg text-ink-2">
                         Les réponses aux questions qui reviennent le plus souvent. Besoin d’une précision ? Écrivez-moi directement.
                     </p>
                     <div className="mt-12 space-y-6">
                         {page.faq.map((item) => (
                             <details
                                 key={item.question}
-                                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-teal-400/70"
+                                className="group rounded-lg border border-line bg-white p-6 transition hover:border-ink"
                             >
-                                <summary className="cursor-pointer text-lg font-semibold text-slate-900">
+                                <summary className="cursor-pointer text-lg font-semibold text-ink">
                                     {item.question}
                                 </summary>
-                                <p className="mt-3 text-slate-600 group-open:animate-fadeIn">
+                                <p className="mt-3 text-ink-2 group-open:animate-fadeIn">
                                     {item.answer}
                                 </p>
                             </details>
@@ -315,14 +315,12 @@ export default async function TechnologyPage({ params }: {
             </section>
 
             {/* CONTACT */}
-            <section className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-                <ContactForm />
-            </section>
+            <ContactForm />
 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
             />
-        </div>
+        </main>
     );
 }
