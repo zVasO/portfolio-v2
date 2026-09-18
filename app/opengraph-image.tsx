@@ -27,10 +27,10 @@ export default function OpenGraphImage() {
           {SITE_NAME} · Développeur web full stack freelance
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 88, lineHeight: 1, letterSpacing: -3 }}>
-          <span>Je fabrique des sites</span>
+          <span>Je conçois des sites</span>
           <span>et des applications web</span>
           <span style={{ display: "flex" }}>
-            <span style={{ background: "#E3FF4F", padding: "0 12px" }}>qui tiennent la route.</span>
+            <span style={{ background: "#E3FF4F", padding: "0 12px" }}>fiables et sur mesure.</span>
           </span>
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "#4A4945" }}>
