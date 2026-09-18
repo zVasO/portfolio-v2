@@ -24,11 +24,11 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", fontSize: 26, color: "#7C7A72", textTransform: "uppercase", letterSpacing: 2 }}>
-          Développeur web full stack · Freelance
+          {SITE_NAME} · Développeur web full stack freelance
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 88, lineHeight: 1, letterSpacing: -3 }}>
-          <span>{SITE_NAME} fabrique</span>
-          <span>des sites et des apps web</span>
+          <span>Je fabrique des sites</span>
+          <span>et des applications web</span>
           <span style={{ display: "flex" }}>
             <span style={{ background: "#E3FF4F", padding: "0 12px" }}>qui tiennent la route.</span>
           </span>
