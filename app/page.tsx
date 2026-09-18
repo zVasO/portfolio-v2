@@ -19,8 +19,8 @@ export default function Home() {
     <main id="main-content">
       <section className="mx-auto max-w-6xl px-6 pb-24 pt-36 sm:pt-44">
         <h1 className={`max-w-6xl text-[clamp(2.75rem,8.5vw,7.5rem)] leading-[0.92] ${fadeIn}`}>
-          Je fabrique des sites et des applications web{" "}
-          <span className="mark">qui tiennent la route</span>.
+          Je conçois des sites et des applications web{" "}
+          <span className="mark">fiables et sur mesure</span>.
         </h1>
 
         <div className={`mt-14 grid gap-12 md:grid-cols-2 ${fadeIn} delay-150`}>
