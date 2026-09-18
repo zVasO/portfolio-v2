@@ -2,87 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-space-grotesk), "Inter", "SF Pro Display", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  text-rendering: optimizeLegibility;
-}
-
-.skip-link {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  background: #1f2937;
-  color: #f9fafb;
-  z-index: 100;
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus,
-.skip-link:focus-visible {
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  clip: auto;
-  transform: translateY(0);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-space-grotesk), "Inter", "SF Pro Display", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  letter-spacing: -0.01em;
-}
-
-code,
-pre,
-kbd,
-samp {
-  font-family: var(--font-plex-mono), "JetBrains Mono", "Fira Code", monospace;
-}
-
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
+  html {
+    scroll-behavior: smooth;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-paper font-sans text-ink antialiased;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-bold leading-none tracking-tight;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    @apply bg-mark text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer components {
+  /* Étiquette courte au-dessus d'un bloc */
+  .label {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted;
+  }
+
+  /* Surlignage « marqueur » : le fond suit les retours à la ligne */
+  .mark {
+    @apply px-[0.1em] text-ink;
+    background-image: linear-gradient(to top, transparent 6%, theme("colors.mark") 6%, theme("colors.mark") 72%, transparent 72%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition-colors duration-150;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-mark hover:text-ink;
+  }
+
+  .btn-ghost {
+    @apply btn border-2 border-ink text-ink hover:bg-ink hover:text-paper;
+  }
+
+  .link {
+    @apply font-medium underline decoration-mark decoration-[3px] underline-offset-[3px] transition-colors hover:bg-mark;
+  }
+
+  .skip-link {
+    @apply absolute -left-[10000px] top-4 z-[100] rounded-md bg-ink px-6 py-3 text-paper;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    @apply left-4;
   }
 }
 
@@ -96,7 +79,7 @@ samp {
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 35%;
+      animation-range: entry 0% entry 30%;
     }
   }
 }
@@ -104,7 +87,7 @@ samp {
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;

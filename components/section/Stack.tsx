@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 
+import SectionHeading from "../SectionHeading";
 import TsLogo from "@/components/tech-logo/TsLogo";
 import PhpLogo from "@/components/tech-logo/PhpLogo";
 import MysqlLogo from "@/components/tech-logo/MysqlLogo";
@@ -11,153 +12,67 @@ import NextLogo from "@/components/tech-logo/NextLogo";
 import ReactLogo from "@/components/tech-logo/ReactLogo";
 import TailwindLogo from "@/components/tech-logo/TailwindLogo";
 
-type Technology = {
-  name: string;
-  description: string;
-  icon: ReactNode;
-  accent: string;
-  border: string;
-};
+type Technology = { name: string; description: string; icon: ReactNode };
+type Category = { label: string; items: Technology[] };
 
-const technologies: readonly Technology[] = [
+const logo = "h-8 w-8";
+
+const categories: Category[] = [
   {
-    name: "TypeScript",
-    description: "Typage statique pour un code fiable et maintenable.",
-    icon: <TsLogo className="h-12 w-12" />,
-    accent: "from-sky-500/30 via-sky-500/10 to-transparent",
-    border: "border-sky-500/30",
+    label: "Back-end",
+    items: [
+      { name: "PHP", description: "Backend solide pour des applications sur mesure.", icon: <PhpLogo className={logo} /> },
+      { name: "Laravel", description: "Framework expressif pour accélérer le développement serveur.", icon: <LaravelLogo className={logo} /> },
+      { name: "Symfony", description: "Architecture modulaire et robuste pour des projets ambitieux.", icon: <SymfonyLogo className={logo} /> },
+    ],
   },
   {
-    name: "JavaScript",
-    description: "Le langage incontournable pour des expériences web dynamiques.",
-    icon: (
-        <Image
-            alt="Logo JavaScript"
-            src="/tech-logo/js.svg"
-            width={48}
-            height={48}
-            className="h-12 w-12"
-        />
-    ),
-    accent: "from-yellow-400/30 via-yellow-400/10 to-transparent",
-    border: "border-yellow-500/30",
+    label: "Front-end",
+    items: [
+      { name: "TypeScript", description: "Typage statique pour un code fiable et maintenable.", icon: <TsLogo className={logo} /> },
+      { name: "JavaScript", description: "Le langage incontournable des expériences web dynamiques.", icon: <Image alt="" src="/tech-logo/js.svg" width={32} height={32} className={logo} /> },
+      { name: "React", description: "Interfaces réactives et orientées composants.", icon: <ReactLogo className={logo} /> },
+      { name: "Vue.js", description: "Approche progressive pour des interfaces expressives.", icon: <Image alt="" src="/tech-logo/vue.svg" width={32} height={32} className={logo} /> },
+      { name: "Next.js", description: "Rendu hybride et performances optimales.", icon: <NextLogo className={`${logo} fill-ink`} /> },
+      { name: "Tailwind CSS", description: "Système utilitaire pour des interfaces cohérentes, vite.", icon: <TailwindLogo className={logo} /> },
+    ],
   },
   {
-    name: "PHP",
-    description: "Backend solide pour des applications sur mesure.",
-    icon: <PhpLogo className="h-12 w-12" />,
-    accent: "from-indigo-500/30 via-indigo-500/10 to-transparent",
-    border: "border-indigo-500/30",
-  },
-  {
-    name: "Laravel",
-    description: "Framework expressif pour accélérer le développement côté serveur.",
-    icon: <LaravelLogo className="h-12 w-12" />,
-    accent: "from-rose-500/30 via-rose-500/10 to-transparent",
-    border: "border-rose-500/30",
-  },
-  {
-    name: "Symfony",
-    description: "Architecture modulaire et robuste pour des projets ambitieux.",
-    icon: <SymfonyLogo className="h-12 w-12" />,
-    accent: "from-slate-500/30 via-slate-500/10 to-transparent",
-    border: "border-slate-500/30",
-  },
-  {
-    name: "Next.js",
-    description: "Rendu hybride et performances optimales pour le frontend.",
-    icon: <NextLogo className="h-12 w-12 fill-black" />,
-    accent: "from-gray-500/30 via-gray-500/10 to-transparent",
-    border: "border-gray-500/30",
-  },
-  {
-    name: "React",
-    description: "Interfaces réactives et component-driven pour le web moderne.",
-    icon: <ReactLogo className="h-12 w-12" />,
-    accent: "from-cyan-400/30 via-cyan-400/10 to-transparent",
-    border: "border-cyan-400/30",
-  },
-  {
-    name: "Vue.js",
-    description: "Approche progressive pour construire des UI expressives.",
-    icon: (
-        <Image
-            alt="Logo Vue.js"
-            src="/tech-logo/vue.svg"
-            width={48}
-            height={48}
-            className="h-12 w-12"
-        />
-    ),
-    accent: "from-emerald-400/30 via-emerald-400/10 to-transparent",
-    border: "border-emerald-400/30",
-  },
-  {
-    name: "Tailwind CSS",
-    description:
-        "Système de design utilitaire pour prototyper à la vitesse de l’éclair.",
-    icon: <TailwindLogo className="h-12 w-12" />,
-    accent: "from-teal-400/30 via-teal-400/10 to-transparent",
-    border: "border-teal-400/30",
-  },
-  {
-    name: "MySQL",
-    description: "Base de données relationnelle fiable pour vos applications.",
-    icon: <MysqlLogo className="h-12 w-12" />,
-    accent: "from-amber-500/30 via-amber-500/10 to-transparent",
-    border: "border-amber-500/30",
-  },
-  {
-    name: "PostgreSQL",
-    description: "Puissance et extensibilité pour les données critiques.",
-    icon: <PostgresqlLogo className="h-12 w-12" />,
-    accent: "from-sky-600/30 via-sky-600/10 to-transparent",
-    border: "border-sky-600/30",
+    label: "Données",
+    items: [
+      { name: "MySQL", description: "Base relationnelle fiable et éprouvée.", icon: <MysqlLogo className={logo} /> },
+      { name: "PostgreSQL", description: "Puissance et extensibilité pour les données critiques.", icon: <PostgresqlLogo className={logo} /> },
+    ],
   },
 ];
 
 const Stack = () => {
   return (
-      <section
-          id="stack"
-          className="min-h-screen bg-gray-50 py-24 px-4 sm:px-6 lg:px-10"
-      >
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-          <h2 className="reveal bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-            Technical Stack
-          </h2>
-          <p className="reveal mt-6 max-w-3xl text-lg text-gray-600">
-            Un écosystème d&apos;outils modernes, sélectionnés pour construire des
-            expériences numériques haut de gamme, performantes et fiables.
-          </p>
-        </div>
+    <section id="stack" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
+      <SectionHeading
+        title="Avec quoi je travaille."
+        lead="Des outils que je connais bien, choisis pour construire des produits performants et faciles à maintenir."
+      />
 
-        <div className="mx-auto mt-16 grid w-full max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
-          {technologies.map((tech) => (
-              <article
-                  key={tech.name}
-                  className={`reveal group relative overflow-hidden rounded-3xl border ${tech.border} bg-white/80 p-7 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl`}
-              >
-                <div
-                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tech.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-                />
-                <div className="relative flex items-start justify-between gap-6">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/80 shadow-inner shadow-black/10">
-                    {tech.icon}
+      <div className="mt-12 divide-y divide-line border-b border-line">
+        {categories.map((category) => (
+          <div key={category.label} className="reveal grid gap-6 py-10 md:grid-cols-[10rem_1fr]">
+            <p className="label pt-1">{category.label}</p>
+            <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+              {category.items.map((tech) => (
+                <li key={tech.name} className="flex gap-4">
+                  <span className="mt-0.5 shrink-0">{tech.icon}</span>
+                  <div>
+                    <h3 className="text-lg">{tech.name}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-ink-2">{tech.description}</p>
                   </div>
-                </div>
-                <div className="relative mt-6 space-y-3 text-left">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {tech.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
-                    {tech.description}
-                  </p>
-                </div>
-              </article>
-          ))}
-        </div>
-      </section>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

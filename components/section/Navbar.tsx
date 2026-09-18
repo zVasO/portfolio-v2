@@ -1,147 +1,37 @@
-"use client";
-import React from "react";
-import { Dock, DockIcon } from "../ui/dock";
-import {
-  BriefcaseBusiness,
-  Code,
-  Github,
-  Home,
-  Linkedin,
-  Mail,
-  User,
-} from "lucide-react";
-import { Separator } from "../ui/separator";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import IconLink from "../IconLink";
-import BurgerMenu from "../MenuBurger";
+import Link from "next/link";
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
+import MobileMenu from "../MobileMenu";
+import { SITE_NAME } from "@/lib/site";
 
-const Navbar: React.FC = () => {
+export const NAV_LINKS = [
+  { href: "/#about", label: "À propos" },
+  { href: "/#stack", label: "Stack" },
+  { href: "/#experience", label: "Expériences" },
+  { href: "/#testimonials", label: "Témoignages" },
+] as const;
+
+const Navbar = () => {
   return (
-    <>
-      <nav className='hidden sm:block' aria-label='Navigation principale'>
-        <TooltipProvider delayDuration={10}>
-          <div className='relative'>
-            <Dock
-              direction='middle'
-              className='fixed top-0 left-0 right-0 z-50 border bg-white/70'
-            >
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='/'
-                      icon={<Home />}
-                      label="Page d'accueil"
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Page d&apos;accueil</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <Separator orientation='vertical' className='h-full py-2' />
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='/#about'
-                      icon={<User />}
-                      label='A propos de moi'
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>A propos de moi</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='/#stack'
-                      icon={<Code />}
-                      label='Stack Technique'
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Stack Technique</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='/#experience'
-                      icon={<BriefcaseBusiness />}
-                      label='Experience'
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Experience</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <Separator orientation='vertical' className='h-full py-2' />
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='https://github.com/zVasO'
-                      icon={<Github />}
-                      label='Mon GitHub'
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Github</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='https://www.linkedin.com/in/dylan-germann/'
-                      icon={<Linkedin />}
-                      label='Mon LinkedIn'
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Linkedin</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-              <Separator orientation='vertical' className='h-full py-2' />
-              <DockIcon>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <IconLink
-                      href='/#contact'
-                      icon={<Mail />}
-                      label='Me contacter'
-                      isInternal
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Contactez moi !</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            </Dock>
-          </div>
-        </TooltipProvider>
-      </nav>
-      <div className='fixed top-0 left-0 right-0 z-10 bg-white sm:hidden'>
-        <BurgerMenu />
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="text-xl font-bold tracking-tight" aria-label="Retour à l'accueil">
+          {SITE_NAME}
+        </Link>
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="text-base font-medium text-ink-2 transition-colors hover:text-ink">
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/#contact" className="btn-primary px-5 py-2 text-sm">
+            Me contacter
+          </Link>
+        </nav>
+
+        <MobileMenu />
       </div>
-    </>
+    </header>
   );
 };
 

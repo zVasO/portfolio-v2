@@ -17,24 +17,24 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#fafafa",
-          color: "#111827",
+          background: "#F4F1EA",
+          color: "#151515",
           fontFamily: "sans-serif",
+          fontWeight: 700,
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, color: "#4f46e5", fontWeight: 600 }}>
-          Développeur Web Freelance
+        <div style={{ display: "flex", fontSize: 26, color: "#7C7A72", textTransform: "uppercase", letterSpacing: 2 }}>
+          Développeur web full stack · Freelance
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ display: "flex", fontSize: 96, fontWeight: 700, letterSpacing: -3, lineHeight: 1 }}>
-            {SITE_NAME}
-          </div>
-          <div style={{ display: "flex", fontSize: 36, color: "#374151" }}>
-            Laravel · Symfony · Next.js · React · Vue.js
-          </div>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 88, lineHeight: 1, letterSpacing: -3 }}>
+          <span>{SITE_NAME} fabrique</span>
+          <span>des sites et des apps web</span>
+          <span style={{ display: "flex" }}>
+            <span style={{ background: "#E3FF4F", padding: "0 12px" }}>qui tiennent la route.</span>
+          </span>
         </div>
-        <div style={{ display: "flex", fontSize: 28, color: "#6b7280" }}>
-          Sites et applications web sur mesure
+        <div style={{ display: "flex", fontSize: 26, color: "#4A4945" }}>
+          PHP · Laravel · Symfony · TypeScript · React · Vue.js · Next.js
         </div>
       </div>
     ),

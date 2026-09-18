@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import React from "react";
@@ -9,18 +9,11 @@ import Navbar from "@/components/section/Navbar";
 import Footer from "@/components/section/Footer";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
-const spaceGrotesk = Space_Grotesk({
+const sans = Bricolage_Grotesque({
     subsets: ["latin"],
-    variable: "--font-space-grotesk",
+    variable: "--font-sans",
     display: "swap",
-    weight: ["400", "500", "600", "700"],
-});
-
-const plexMono = IBM_Plex_Mono({
-    subsets: ["latin"],
-    variable: "--font-plex-mono",
-    display: "swap",
-    weight: ["400", "500", "600"],
+    axes: ["opsz", "wdth"],
 });
 
 export const metadata: Metadata = {
@@ -64,13 +57,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fr" className="scroll-smooth">
-            <body className={`${spaceGrotesk.variable} ${plexMono.variable} antialiased`}>
+        <html lang="fr">
+            <body className={sans.variable}>
                 <a className="skip-link" href="#main-content">
                     Aller au contenu principal
                 </a>
                 <Navbar />
-                <div className="min-h-screen">{children}</div>
+                {children}
                 <Footer />
                 <Analytics />
                 <SpeedInsights />

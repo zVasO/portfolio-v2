@@ -1,152 +1,47 @@
-"use client";
+import SectionHeading from "./SectionHeading";
 
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useMemo, useState } from "react";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
-
-interface Testimonial {
-    name: string;
-    role: string;
-    feedback: string;
-}
-
-const testimonials: Testimonial[] = [
-    {
-        name: "Emilie de Auduin Réalisation",
-        role: "Client sur Malt",
-        feedback:
-            "Très réactif et sérieux, je repasserai par Dylan avec plaisir pour d'autres projets.",
-    },
-    {
-        name: "Patrick de Iziparty",
-        role: "Client sur Malt",
-        feedback:
-            "Réactivité, suivi et résultat. Je recommande vivement Dylan qui a assuré sa mission de manière très professionnelle. Je retravaillerai avec lui certainement pour de prochaines missions.",
-    },
-    {
-        name: "Hugues de Air-papillon",
-        role: "Client sur Codeur.com",
-        feedback:
-            "Compréhension affutée du besoin, résolution claire efficace en parfaite correspondance avec le problème posé, si on le demandais, je dirai que c'est tip top !",
-    },
+const testimonials = [
+  {
+    name: "Emilie",
+    company: "Auduin Réalisation",
+    role: "Cliente sur Malt",
+    feedback: "Très réactif et sérieux, je repasserai par Dylan avec plaisir pour d'autres projets.",
+  },
+  {
+    name: "Patrick",
+    company: "Iziparty",
+    role: "Client sur Malt",
+    feedback:
+      "Réactivité, suivi et résultat. Je recommande vivement Dylan qui a assuré sa mission de manière très professionnelle. Je retravaillerai avec lui certainement pour de prochaines missions.",
+  },
+  {
+    name: "Hugues",
+    company: "Air-papillon",
+    role: "Client sur Codeur.com",
+    feedback:
+      "Compréhension affutée du besoin, résolution claire efficace en parfaite correspondance avec le problème posé, si on le demandais, je dirai que c'est tip top !",
+  },
 ];
 
 export default function Testimonials() {
-    const [index, setIndex] = useState(0);
-    const [direction, setDirection] = useState<"left" | "right">("right");
-    const shouldReduceMotion = useReducedMotion();
+  return (
+    <section id="testimonials" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-24">
+      <SectionHeading title="Ce qu’en disent les clients." lead="Avis laissés sur Malt et Codeur.com." />
 
-    const slideAnimation = useMemo(() => {
-        if (shouldReduceMotion) {
-            return {
-                initial: { opacity: 1, x: 0 },
-                animate: { opacity: 1, x: 0 },
-                exit: { opacity: 1, x: 0 },
-                transition: { duration: 0 },
-            } as const;
-        }
-
-        return {
-            initial: { x: direction === "right" ? 150 : -150, opacity: 0 },
-            animate: { x: 0, opacity: 1 },
-            exit: { x: direction === "right" ? -150 : 150, opacity: 0 },
-            transition: { duration: 0.4, ease: "easeInOut" },
-        } as const;
-    }, [direction, shouldReduceMotion]);
-
-    const handlePrev = () => {
-        setDirection("left");
-        setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-    };
-
-    const handleNext = () => {
-        setDirection("right");
-        setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    };
-
-    return (
-        <section className="mt-20 max-w-3xl mx-auto px-6 relative overflow-hidden">
-            <h2 className="text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent">
-                Témoignages
-            </h2>
-            <p className="mt-3 text-center text-gray-600">
-                Voici quelques retours de mes clients sur Malt et Codeur.
-            </p>
-
-            {/* Carousel */}
-            <div className="mt-12 relative h-[260px] sm:h-[240px]">
-                <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                        key={index}
-                        className="absolute w-full rounded-3xl bg-white/80 backdrop-blur-sm p-8 shadow-xl cursor-grab active:cursor-grabbing"
-                        {...slideAnimation}
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={0.7}
-                        onDragEnd={(_, info) => {
-                            if (info.offset.x > 100) {
-                                handlePrev();
-                            } else if (info.offset.x < -100) {
-                                handleNext();
-                            }
-                        }}
-                        role="group"
-                        aria-roledescription="Témoignage client"
-                        aria-live="polite"
-                        aria-atomic="true"
-                    >
-                        <Quote className="absolute top-6 right-6 text-indigo-400/30 w-10 h-10" />
-                        <div className="flex items-center mt-6">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 flex items-center justify-center text-white font-bold">
-                                {testimonials[index].name.charAt(0)}
-                            </div>
-                            <div className="ml-4">
-                                <h3 className="font-semibold text-gray-900">
-                                    {testimonials[index].name}
-                                </h3>
-                                <span className="text-sm text-gray-500">
-                  {testimonials[index].role}
-                </span>
-                            </div>
-                        </div>
-                        <p className="text-gray-700 leading-relaxed">
-                            “{testimonials[index].feedback}”
-                        </p>
-                    </motion.div>
-                </AnimatePresence>
+      <ul className="mt-12 divide-y divide-line border-b border-line">
+        {testimonials.map((t) => (
+          <li key={t.company} className="reveal grid gap-6 py-10 md:grid-cols-[10rem_1fr]">
+            <div>
+              <p className="font-semibold">{t.name}</p>
+              <p className="text-sm text-ink-2">{t.company}</p>
+              <p className="label mt-2">{t.role}</p>
             </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center items-center gap-4 mt-6">
-                <button
-                    onClick={handlePrev}
-                    className="p-2 rounded-full bg-indigo-500 text-white hover:bg-indigo-600 transition"
-                    aria-label="Afficher le témoignage précédent"
-                    type="button"
-                >
-                    <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="p-2 rounded-full bg-teal-500 text-white hover:bg-teal-600 transition"
-                    aria-label="Afficher le témoignage suivant"
-                    type="button"
-                >
-                    <ChevronRight className="w-5 h-5" />
-                </button>
-            </div>
-
-            {/* Indicateurs */}
-            <div className="flex justify-center mt-4 gap-2">
-                {testimonials.map((_, i) => (
-                    <div
-                        key={i}
-                        className={`h-2 w-2 rounded-full transition ${
-                            i === index ? "bg-teal-500 w-6" : "bg-gray-400/50"
-                        }`}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+            <blockquote className="max-w-3xl text-2xl font-medium leading-snug sm:text-3xl">
+              « {t.feedback} »
+            </blockquote>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }
